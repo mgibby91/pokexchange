@@ -10,6 +10,6 @@ CREATE TABLE messages
   text_body TEXT NOT NULL,
   time_sent TIMESTAMP NOT NULL,
   listing_id INTEGER REFERENCES listings(id) ON DELETE CASCADE,
-  read_by_recipient BOOLEAN NOT NULL DEFAULT FALSE,
+  -- read_by_recipient BOOLEAN NOT NULL DEFAULT FALSE,
   active BOOLEAN NOT NULL DEFAULT TRUE
 );

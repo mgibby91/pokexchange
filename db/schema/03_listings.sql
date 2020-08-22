@@ -11,9 +11,8 @@ CREATE TABLE listings
   condition VARCHAR(255) NOT NULL,
   time_posted TIMESTAMP NOT NULL,
   description TEXT,
-  location VARCHAR(255) NOT NULL,
   city VARCHAR(255) NOT NULL,
-  province VARCHAR(255) NOT NULL,
+  country VARCHAR(255) NOT NULL,
   category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
   active BOOLEAN NOT NULL DEFAULT TRUE
   -- simply active to start db
