@@ -1,6 +1,5 @@
 
-SELECT *, categories.name as category
-FROM listings
-  JOIN categories ON category_id = categories.id
-WHERE condition = 'emulation'
-ORDER BY time_posted DESC;
+SELECT *
+FROM messages
+WHERE (buyer_id = 2 OR seller_id = 2) AND listing_id = 16
+ORDER BY time_sent;
