@@ -13,16 +13,39 @@ const {
   getAllListingsByCategory,
   getAllListingsByPriceRange,
   getAllListingsUserFavourited,
-  addCards
+  addCards,
+  updateCards
 } = require('../lib/listing-queries');
-const { get } = require('./users');
 
+// const options = {title: "big"}
+// const id = 57
+// updateCards(options, id)
+
+//delete cards
+router.
+
+//edit cards
+router.get('/listing/:id', (req, res) => {
+  const userId = req.session.user_id;
+  const cardId = req.params.id
+  // console.log(updateCards({...req.body, user_id: userId}, cardId))
+  const data = {cardId: updateCards({...req.body, user_id: userId}, cardId)};
+  res.render("test_show", data)
+})
+router.post("/listing/:id", (req, res) => {
+  const userId = req.session.user_id;
+  const cardId = req.params.id
+  updateCards({...req.body, user_id: userId}, cardId)
+    .then((cards) =>{
+      console.log(cards)
+      res.redirect('/')
+    })
+})
 //show the user-lists
 router.get('/creat_list', (req,res) => {
   const userId = req.session.user_id
  getAllListingsByUserID(userId)
   .then((uresults) => {
-    console.log ("show the userid list: ", uresults);
     res.render('test1', {uresults})
   })
 })
@@ -32,21 +55,30 @@ router.get('/favourites', (req, res) => {
   const userId = req.session.user_id
   getAllListingsUserFavourited(userId)
   .then((fresults) => {
-    console.log ("show the favorate list: ", fresults)
     res.render('test2', {fresults})
   })
 })
 
 //user add new products
+router.get('/new', (req, res) => {
+  const userId = req.session.user_id;
+  res.render('test3', addCards({...req.body, user_id: userId}))
+})
+
 router.post('/', (req, res) => {
   const userId = req.session.user_id;
-  addCards(({...req.body, owner_id: userId}))
+  addCards({...req.body, user_id: userId})
    .then((cards) => {
      console.log(cards)
-
-     res.send(cards)
+    //  res.send(cards)
+     res.redirect('/')
    })
 })
+
+
+
+
+
 
 //show all products by time
 router.get('/', (req, res) => {
