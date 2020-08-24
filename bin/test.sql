@@ -1,6 +1,6 @@
 
-SELECT *, category.name as category
+SELECT *, categories.name as category
 FROM listings
   JOIN categories ON category_id = categories.id
-WHERE price > 1 AND price < 1000
-ORDER BY price ASC;
+WHERE condition = 'emulation'
+ORDER BY time_posted DESC;
