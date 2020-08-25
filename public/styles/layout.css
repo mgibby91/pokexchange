@@ -33,6 +33,13 @@ a#line {
     font-size: 50px;
 }
 
+#featured-header, #recent-header {
+  font-family: 'pokemon_solidnormal';
+  text-shadow: 3px 3px #3c5aa6;
+  color: #ffcb05;
+  font-size: 35px;
+}
+
 a#tagline {
     color: #ffffff;
     z-index: 1;
@@ -114,8 +121,8 @@ li a {
 }
 
 main {
-margins: auto;
-  width: 100%;
+  margin-left: 15%;
+  width: 80%;
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -131,16 +138,17 @@ section {
 
 
 #featured {
-  width: 50%;
+  width:45%;
   display: flex;
   justify-content: space-around;
   background-color: black;
-  padding: 25px 10px;
+  padding: 25px;
+  margin-top: 0px;
 }
 
-img {
-  height: 100px;
-  width: 100px;
+#featured img, #recent img {
+  height: 130px;
+  width: 130px;
   object-fit: cover;
 }
 
@@ -149,9 +157,18 @@ img {
   font-size: 12px;
 }
 
+input {
+  width: 300px;
+  height: 20px;
+}
+
+a img {
+  vertical-align: middle;
+}
+
 .listing {
   background-color: beige;
-  height: 150px;
+  height: 170px;
   width: 700px;
   display: flex;
   padding: 10px;
@@ -175,6 +192,9 @@ img {
 .summary {
   text-align: right;
   padding-right: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 #love {
