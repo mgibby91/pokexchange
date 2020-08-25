@@ -10,152 +10,100 @@ const router  = express.Router();
 const {
   getAllListingsByMostRecent,
   getAllListingsByUserID,
-  getAllListingsByCategory,
-  getAllListingsByPriceRange,
   getAllListingsUserFavourited,
-  addCards,
+  getAllListingsByCategory,
+  getAllListingsByCity,
+  getMostFavouritedListings,
+  getAllListingsByFilters,
+} = require('../lib/listing-queries'); // need to change back to listing-queries
 
-} = require('../lib/listing-queries');
+const { getUserByID, getUserByUsername} = require('../lib/users_queries')
+
+const {
+  getAllMessagesByListingID,
+  getAllMessagesByUserID,
+  getAllMessagesForUserByListingID
+} = require('../lib/messages-queries')
 
 
-//delete cards
-router.post("/listing/:id/delete", (req,res) => {
-  const userId = req.session.user_id;
-  // for the delete function need to wait for function name
-  // deleteListingByUserID(userId)
-  //   .then((result) =>{
-  //     res.send(result)
-  //   }).catch(err =>{
-  //     console.error(err);
-  //     res.status(500).json({error})
-  //  })
+//get all list from city
+router.get("/cities/:city", (req, res) =>{
+  const city = req.params.city;
+  getAllListingsByCity(city)
+    .then((result) => {
+      res.send({result});
+    }).catch((err) => {
+      console.error(err)
+      res.json({error});
+    })
 })
 
-//delete favourate
-router.post("/favourites/:id/delete", (req,res) => {
-  const userId = req.session.user_id;
-  // for the delete function need to wait for function name
-  // deleteFavourateByUserID(userId)
-  //   .then((result) =>{
-  //     res.send(result)
-  //   }).catch(err => {
-  //    console.error(err)  
-  //     res.status(500).json({error})  
-  // })
-})
-
-//edit cards--not sure if it is work or not
-// router.get("/listing/:id", (req, res) => {
-//   const userId = req.session.user_id;
-//   const cardId = req.params.id
-//   const data = {cardId: updateCards({...req.body, user_id: userId}, cardId)};
-//   res.render("test_show", data)
-// })
-//edit cars information
-router.post("/listing/:id", (req, res) => {
-  const userId = req.session.user_id;
-  const cardId = req.params.id
-  //updatecards is not real function
-  updateCards({...req.body, user_id: userId}, cardId)
-    .then((cards) =>{
-      console.log(cards)
-      res.send({cards})
-    }).catch(err =>{
+//get all list from category
+router.get("/categories/:name", (req, res) => {
+  const name = req.params.name
+  getAllListingsByCategory(name)
+    .then((result) => {
+       res.send({result});
+    }).catch((err) => {
       console.error(err);
-      res.status(500).json({error})
-   })
+      res.json({error});
+    })
+
+})
+//get all listing by userId
+router.get("/listings/manage", (req, res) => {
+  const userId = req.session.user_id;
+  getAllListingsByUserID(userId)
+    .then((result) =>{
+       res.send({result})
+    }).catch((err) =>{
+      console.error(err);
+      res.json({error})
+    })
 })
 
-//show the user-lists
-router.get('/creat_list', (req,res) => {
-  const userId = req.session.user_id
- getAllListingsByUserID(userId)
-  .then((uresults) => {
-    res.send({uresults})
-  }).catch(err =>{
-    console.error(err);
-    res.status(500).json({error})
-  })
-})
-
-//show the user-favout list
-router.get('/favourites', (req, res) => {
-  const userId = req.session.user_id
+//get all listing by user's favorate
+router.get("/listings/favourites", (req, res) => {
+  const userId = req.session.user_id;
   getAllListingsUserFavourited(userId)
-    .then((fresults) => {
-      res.send({fresults})
-    }).catch(err =>{
-      console.error(err);
-      res.status(500).json({error})
+    .then((result) =>{
+      res.send({result})
+    }).catch((err) => {
+      console.error(err)
+      res.json({error})
     })
 })
 
-
-//user add new products, not sure if i need get or not
-// router.get('/listing/new', (req, res) => {
-//   const userId = req.session.user_id;
-//   addCards({...req.body, user_id: userId})
-//     .then((newCard) =>{
-//        res.send({newCard})
-//     })
-// })
-
-//add new cards
-router.post('/new', (req, res) => {
-  const userId = req.session.user_id;
-  //addcards is not the really function
-  addCards({...req.body, user_id: userId})
-   .then((cards) => {
-     console.log(cards)
-     res.json({ok: "ok"})
-    //  res.json({cards})
-   }).catch(err =>{
-      console.error(err);
-      res.status(500).json({error})
-   })
-})
-
-//add favorate
-router.post('/favourates/new', (req, res) =>{
-  const userId = req.session.user_id;
-  //addfavourates is not real function
-  addfavourate({...req.body, user_id: userId})
-    .then((cards) =>{
-      res.json({cards})
-    }).catch(err =>{
-      console.error(err);
-      res.status(500).json({error})
+//for the search part
+router.get("/search", (req, res) => {
+  console.log(req.query)
+  getAllListingsByFilters(req.query)
+    .then((result) => {
+      res.send({result})
+    }).catch((err) =>{
+       console.error(err)
+       res.send({error})
     })
 })
 
-//show all products by time, catagary and user's name
+//show all products by time, favourit and user's name
 router.get('/', (req, res) => {
+  const userId = req.session.user_id;
   Promise.all([
-    getAllListingsByMostRecent(),
-    getAllListingsByCategory('Cards'),
-    getAllListingsByCategory('Video Games'),
-    getAllListingsByCategory('Clothing'),
-    getAllListingsByCategory('Toys'),
-    getAllListingsByCategory('Plushies'),
-    getAllListingsByCategory('Movies'),
-    getAllListingsByCategory('Accessories'),//need to change the favourate function
-    getAllListingsByCategory('Other')
-    //need city list
-    //need user list
+    getAllListingsByMostRecent(),         
+    getMostFavouritedListings(),
+    getUserByID(userId),
   ]).then((result) => {
-    const [result1, result2, result3, result4,result5, result6, result7, result8,result9, result10, result11, result12, result13,result14] = result
-    res.json({mostRecent:result1, cards:result2, videoGames: result3, 
-      clothing: result4, toys: result5, plushies: result6, 
-      movies: result7, accessories: result8, others: result9,
-      vancouver: result10, montreal: result11, toronto: result12, 
-      calgary: result13, victoria: result14})
+    const [result1, result2, result3] = result
+    res.send({mostRecent:result1, 
+      MostFav:result2, 
+      userId: result3
+    })
   }).catch(err =>{
     console.error(err);
     res.status(500).json({error})
   })
 })
-
-
 
 
 module.exports = router;
