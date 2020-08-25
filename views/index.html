@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="../public/styles/layout.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+
+  <body>
+    <nav>
+      <a id=line> </a>
+        <span id="nav">Pokéxchange</span>
+        <a id="tagline">Gotta collect it all!</a>
+        <div id="links">
+          <a id="user">Welcome, ________!</a>
+          <div>
+            <a href="/messages">Inbox</a>
+            <a href="/my_listings">Manage Listings</a>
+            <a href="/listings/new">Create New Listing</a>
+            <a href="/logout">Log Out</a>
+          </div>
+        </div>
+    </nav>
+    
+    <!-- Side navigation -->
+<div class="sidenav">
+  <a class="header">Locations</a>
+    <ul>
+      <li><a href="">Vancouver</a></li>
+      <li><a href="">Montreal</a></li>
+      <li><a href="">Toronto</a></li>
+      <li><a href="">Calgary</a></li>
+      <li><a href="">Victoria</a></li>
+  </ul>
+  <a class="header">Categories</a>
+      <ul>
+        <li><a href="">Cards</a></li>
+        <li><a href="">Video Games</a></li>
+        <li><a href="">Clothing</a></li>
+        <li><a href="">Toys</a></li>
+        <li><a href="">Plushies</a></li>
+        <li><a href="">Movies</a></li>
+        <li><a href="">Accessories</a></li>
+        <li><a href="">¯\_(ツ)_/¯</a></li>
+      </ul>
+  <a class="header">Favourites</a>
+  <a class="header"></a>
+</div>
+
+<!-- Page content -->
+<main class="container">
+  <section id="search">
+    <input type="text">
+    <button type="submit">Search</button>
+    <br>
+    <a>More Options...</a>
+  </section>
+  <section id="featured">
+    <img src="../public/resources/backpack.png"/>
+    <img src="../public/resources/funko.jpeg"/>
+    <img src="../public/resources/plushies.jpg"/>
+  </section>
+  <section id="recent">
+    <article class="listing">
+      <div class="img-date">
+        <img src="../public/resources/backpack.png"/>
+        <a>Posted Aug 24, 2020</a>
+      </div>
+      <div class="summary">
+        <p>Pokémon Backpack</p>
+        <p>$50.00</p>
+        <p>Vancouver</p>
+        <p>
+          <i class="fa fa-heart" id="love"></i>
+        </p>
+      </div>
+    </article>
+        <article class="listing">
+      <div class="img-date">
+        <img src="../public/resources/plushies.jpg"/>
+        <a>Posted Aug 23, 2020</a>
+      </div>
+      <div class="summary">
+        <p>Pokémon Plushies</p>
+        <p>$30.00</p>
+        <p>Victoria</p>
+        <p>
+          <i class="loved fa fa-heart" id="love"></i>
+        </p>
+      </div>
+    </article>
+        <article class="listing">
+      <div class="img-date">
+        <img src="../public/resources/funko.jpeg"/>
+        <a>Posted Aug 22, 2020</a>
+      </div>
+      <div class="summary">
+        <p>Assorted Funko Pops</p>
+        <p>$20.00</p>
+        <p>Montreal</p>
+        <p>
+          <i class="fa fa-heart" id="love"></i>
+        </p>
+      </div>
+    </article>
+  </section>
+</main>
+
+  </body>
+</html>
