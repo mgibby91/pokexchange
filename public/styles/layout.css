@@ -23,8 +23,12 @@ a#line {
   height: 45px;
 }
 
-#nav, #tagline {
+#nav {
     text-shadow: 5px 5px #3c5aa6;
+}
+
+#tagline {
+  text-shadow: 3px 3px #3c5aa6;
 }
 
 #nav {
@@ -157,9 +161,10 @@ section {
   font-size: 12px;
 }
 
-input {
+#search_box  {
   width: 300px;
   height: 20px;
+  margin-bottom: 3px;
 }
 
 a img {
@@ -209,10 +214,44 @@ a img {
   color: red;
 }
 
-input.search {
+#search-box {
   height: 20px;
-  width: 300px;
+  width: 450px;
+}
 
+#options {
+  margin: 5px 0px 5px;
+}
+
+#options i {
+  position: absolute;
+  font-size: 15px;
+  padding-left: 3px;
+}
+
+#option-fields {
+  margin: 5px;
+  margin-left: 13px;
+  width: 450px;
+}
+
+#option-fields input {
+  width: 50px;
+}
+
+select {
+  font-size: 12px;
+  width: 90px;
+}
+
+#option-fields p {
+  display: flex;
+  justify-content: space-around;
+}
+
+#prices {
+  margin-left: 95px;
+  margin-right: 100px;
 }
 @font-face {
     font-family: 'pokemon_solidnormal';
@@ -228,4 +267,38 @@ input.search {
          url('../fonts/pokemon/pokemon_hollow-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+/* Pulse - from https://ianlunn.github.io/Hover/#effects, slightly modified */
+@-webkit-keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+#options:hover i{
+  -webkit-animation-name: hvr-pulse;
+  animation-name: hvr-pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
