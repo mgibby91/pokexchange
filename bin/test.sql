@@ -16,5 +16,9 @@
 -- JOIN images ON listing_id = listings.id
 -- WHERE city = 'Calgary';
 
+-- SELECT *
+-- FROM messages;
+
 SELECT *
-FROM messages;
+FROM listings
+WHERE id = 49;
