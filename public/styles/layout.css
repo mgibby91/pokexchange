@@ -38,7 +38,7 @@ a#line {
     font-size: 50px;
 }
 
-#featured-header, #recent-header, #selling-header {
+#featured-header, #recent-header, #selling-header, #selling-header-edit {
   font-family: 'pokemon_solidnormal';
   text-shadow: 3px 3px #3c5aa6;
   color: #ffcb05;
@@ -258,10 +258,14 @@ select {
 
 /*end of index, start of create listing*/
 
-#selling-header {
+#selling-header, #selling-header-edit {
   font-family: 'pokemon_solidnormal';
   margin-right: 550px;
   margin-top: 10px;
+}
+
+#selling-header-edit {
+  margin-right: 565px;
 }
 
 #new-listing {
