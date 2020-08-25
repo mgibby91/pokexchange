@@ -1,400 +1,201 @@
 insert into images
   (listing_id, image_url)
 values
-  (1, 'http://dummyimage.com/198x135.bmp/cc0000/ffffff');
+  (1, 'https://2.bp.blogspot.com/-C7r0cZpAARg/Vlt2IFix8KI/AAAAAAAAApI/Bll5jnEOdnw/s640/pokeballs_yet_more_models_by_bioniclegahlok.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (2, 'http://dummyimage.com/112x248.jpg/dddddd/000000');
+  (2, 'https://www.oldsportscards.com/wp-content/uploads/2019/12/Most-Valuable-First-Edition-Pokemon-Cards.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (3, 'http://dummyimage.com/174x199.png/cc0000/ffffff');
+  (3, 'https://www.funcarnival.com/mm5/graphics/00000001/TF3130.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (4, 'http://dummyimage.com/139x200.png/dddddd/000000');
+  (4, 'https://pbs.twimg.com/media/BmVnacQCcAAfRv8?format=jpg&name=small');
 insert into images
   (listing_id, image_url)
 values
-  (5, 'http://dummyimage.com/169x238.jpg/5fa2dd/ffffff');
+  (5, 'https://www.funcarnival.com/mm5/graphics/00000001/TF3130.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (6, 'http://dummyimage.com/153x190.bmp/ff4444/ffffff');
+  (6, 'https://i.pinimg.com/originals/6d/5b/a4/6d5ba45eeba74d0cbc65ff3c87b7c1c7.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (7, 'http://dummyimage.com/239x101.jpg/ff4444/ffffff');
+  (7, 'https://2.bp.blogspot.com/-C7r0cZpAARg/Vlt2IFix8KI/AAAAAAAAApI/Bll5jnEOdnw/s640/pokeballs_yet_more_models_by_bioniclegahlok.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (8, 'http://dummyimage.com/159x152.jpg/ff4444/ffffff');
+  (8, 'https://www.oldsportscards.com/wp-content/uploads/2019/12/Most-Valuable-First-Edition-Pokemon-Cards.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (9, 'http://dummyimage.com/106x162.bmp/dddddd/000000');
+  (9, 'https://www.oldsportscards.com/wp-content/uploads/2019/12/Most-Valuable-First-Edition-Pokemon-Cards.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (10, 'http://dummyimage.com/106x169.png/dddddd/000000');
+  (10, 'https://images-na.ssl-images-amazon.com/images/I/81eOrypofyL._AC_SX679_.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (11, 'http://dummyimage.com/196x194.bmp/dddddd/000000');
+  (11, 'https://images-na.ssl-images-amazon.com/images/I/81eOrypofyL._AC_SX679_.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (12, 'http://dummyimage.com/159x143.png/ff4444/ffffff');
+  (12, 'https://www.oldsportscards.com/wp-content/uploads/2019/12/Most-Valuable-First-Edition-Pokemon-Cards.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (13, 'http://dummyimage.com/151x175.png/ff4444/ffffff');
+  (13, 'https://preview.redd.it/d5eubztpmln31.jpg?width=960&crop=smart&auto=webp&s=83481f9e0b4c60476f27434d1f91a7254e7b52c6');
 insert into images
   (listing_id, image_url)
 values
-  (14, 'http://dummyimage.com/185x171.jpg/cc0000/ffffff');
+  (14, 'https://images-na.ssl-images-amazon.com/images/I/81eOrypofyL._AC_SX679_.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (15, 'http://dummyimage.com/149x127.png/5fa2dd/ffffff');
+  (15, 'https://www.oldsportscards.com/wp-content/uploads/2019/12/Most-Valuable-First-Edition-Pokemon-Cards.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (16, 'http://dummyimage.com/212x146.bmp/cc0000/ffffff');
+  (16, 'https://2.bp.blogspot.com/-C7r0cZpAARg/Vlt2IFix8KI/AAAAAAAAApI/Bll5jnEOdnw/s640/pokeballs_yet_more_models_by_bioniclegahlok.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (17, 'http://dummyimage.com/139x217.bmp/cc0000/ffffff');
+  (17, 'https://ae01.alicdn.com/kf/HTB1MxiuPVXXXXXlXFXXq6xXFXXXd/pokemon-go-printed-3D-t-shirt-big-kids-Clothing-boys-and-girls-summer-fashion-t-shirts.jpg_640x640.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (18, 'http://dummyimage.com/192x218.bmp/5fa2dd/ffffff');
+  (18, 'https://pbs.twimg.com/media/BmVnacQCcAAfRv8?format=jpg&name=small');
 insert into images
   (listing_id, image_url)
 values
-  (19, 'http://dummyimage.com/172x163.png/ff4444/ffffff');
+  (19, 'https://ae01.alicdn.com/kf/HTB1MxiuPVXXXXXlXFXXq6xXFXXXd/pokemon-go-printed-3D-t-shirt-big-kids-Clothing-boys-and-girls-summer-fashion-t-shirts.jpg_640x640.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (20, 'http://dummyimage.com/184x174.jpg/dddddd/000000');
+  (20, 'https://pbs.twimg.com/media/BmVnacQCcAAfRv8?format=jpg&name=small');
 insert into images
   (listing_id, image_url)
 values
-  (21, 'http://dummyimage.com/155x170.png/5fa2dd/ffffff');
+  (21, 'https://ae01.alicdn.com/kf/HTB1MxiuPVXXXXXlXFXXq6xXFXXXd/pokemon-go-printed-3D-t-shirt-big-kids-Clothing-boys-and-girls-summer-fashion-t-shirts.jpg_640x640.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (22, 'http://dummyimage.com/234x104.png/ff4444/ffffff');
+  (22, 'https://www.oldsportscards.com/wp-content/uploads/2019/12/Most-Valuable-First-Edition-Pokemon-Cards.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (23, 'http://dummyimage.com/149x204.png/5fa2dd/ffffff');
+  (23, 'https://www.funcarnival.com/mm5/graphics/00000001/TF3130.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (24, 'http://dummyimage.com/144x101.bmp/dddddd/000000');
+  (24, 'https://preview.redd.it/d5eubztpmln31.jpg?width=960&crop=smart&auto=webp&s=83481f9e0b4c60476f27434d1f91a7254e7b52c6');
 insert into images
   (listing_id, image_url)
 values
-  (25, 'http://dummyimage.com/227x103.jpg/dddddd/000000');
+  (25, 'https://preview.redd.it/d5eubztpmln31.jpg?width=960&crop=smart&auto=webp&s=83481f9e0b4c60476f27434d1f91a7254e7b52c6');
 insert into images
   (listing_id, image_url)
 values
-  (26, 'http://dummyimage.com/122x138.jpg/dddddd/000000');
+  (26, 'https://www.funcarnival.com/mm5/graphics/00000001/TF3130.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (27, 'http://dummyimage.com/152x118.bmp/dddddd/000000');
+  (27, 'https://www.oldsportscards.com/wp-content/uploads/2019/12/Most-Valuable-First-Edition-Pokemon-Cards.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (28, 'http://dummyimage.com/242x212.png/ff4444/ffffff');
+  (28, 'https://i.pinimg.com/originals/6d/5b/a4/6d5ba45eeba74d0cbc65ff3c87b7c1c7.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (29, 'http://dummyimage.com/142x226.png/cc0000/ffffff');
+  (29, 'https://preview.redd.it/d5eubztpmln31.jpg?width=960&crop=smart&auto=webp&s=83481f9e0b4c60476f27434d1f91a7254e7b52c6');
 insert into images
   (listing_id, image_url)
 values
-  (30, 'http://dummyimage.com/123x224.jpg/cc0000/ffffff');
+  (30, 'https://www.oldsportscards.com/wp-content/uploads/2019/12/Most-Valuable-First-Edition-Pokemon-Cards.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (31, 'http://dummyimage.com/144x127.jpg/ff4444/ffffff');
+  (31, 'https://www.oldsportscards.com/wp-content/uploads/2019/12/Most-Valuable-First-Edition-Pokemon-Cards.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (32, 'http://dummyimage.com/223x158.jpg/cc0000/ffffff');
+  (32, 'https://pbs.twimg.com/media/BmVnacQCcAAfRv8?format=jpg&name=small');
 insert into images
   (listing_id, image_url)
 values
-  (33, 'http://dummyimage.com/111x200.jpg/5fa2dd/ffffff');
+  (33, 'https://ae01.alicdn.com/kf/HTB1MxiuPVXXXXXlXFXXq6xXFXXXd/pokemon-go-printed-3D-t-shirt-big-kids-Clothing-boys-and-girls-summer-fashion-t-shirts.jpg_640x640.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (34, 'http://dummyimage.com/150x153.png/ff4444/ffffff');
+  (34, 'https://preview.redd.it/d5eubztpmln31.jpg?width=960&crop=smart&auto=webp&s=83481f9e0b4c60476f27434d1f91a7254e7b52c6');
 insert into images
   (listing_id, image_url)
 values
-  (35, 'http://dummyimage.com/140x192.png/5fa2dd/ffffff');
+  (35, 'https://2.bp.blogspot.com/-C7r0cZpAARg/Vlt2IFix8KI/AAAAAAAAApI/Bll5jnEOdnw/s640/pokeballs_yet_more_models_by_bioniclegahlok.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (36, 'http://dummyimage.com/188x198.jpg/cc0000/ffffff');
+  (36, 'https://images-na.ssl-images-amazon.com/images/I/81eOrypofyL._AC_SX679_.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (37, 'http://dummyimage.com/225x230.bmp/dddddd/000000');
+  (37, 'https://i.pinimg.com/originals/6d/5b/a4/6d5ba45eeba74d0cbc65ff3c87b7c1c7.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (38, 'http://dummyimage.com/182x221.bmp/5fa2dd/ffffff');
+  (38, 'https://i.pinimg.com/originals/6d/5b/a4/6d5ba45eeba74d0cbc65ff3c87b7c1c7.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (39, 'http://dummyimage.com/106x208.jpg/dddddd/000000');
+  (39, 'https://preview.redd.it/d5eubztpmln31.jpg?width=960&crop=smart&auto=webp&s=83481f9e0b4c60476f27434d1f91a7254e7b52c6');
 insert into images
   (listing_id, image_url)
 values
-  (40, 'http://dummyimage.com/203x126.bmp/cc0000/ffffff');
+  (40, 'https://i.pinimg.com/originals/6d/5b/a4/6d5ba45eeba74d0cbc65ff3c87b7c1c7.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (41, 'http://dummyimage.com/164x208.bmp/5fa2dd/ffffff');
+  (41, 'https://images-na.ssl-images-amazon.com/images/I/81eOrypofyL._AC_SX679_.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (42, 'http://dummyimage.com/199x211.jpg/5fa2dd/ffffff');
+  (42, 'https://ae01.alicdn.com/kf/HTB1MxiuPVXXXXXlXFXXq6xXFXXXd/pokemon-go-printed-3D-t-shirt-big-kids-Clothing-boys-and-girls-summer-fashion-t-shirts.jpg_640x640.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (43, 'http://dummyimage.com/169x185.png/ff4444/ffffff');
+  (43, 'https://www.funcarnival.com/mm5/graphics/00000001/TF3130.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (44, 'http://dummyimage.com/168x226.bmp/ff4444/ffffff');
+  (44, 'https://www.oldsportscards.com/wp-content/uploads/2019/12/Most-Valuable-First-Edition-Pokemon-Cards.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (45, 'http://dummyimage.com/130x180.png/cc0000/ffffff');
+  (45, 'https://i.pinimg.com/originals/6d/5b/a4/6d5ba45eeba74d0cbc65ff3c87b7c1c7.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (46, 'http://dummyimage.com/203x141.jpg/5fa2dd/ffffff');
+  (46, 'https://images-na.ssl-images-amazon.com/images/I/81eOrypofyL._AC_SX679_.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (47, 'http://dummyimage.com/246x166.jpg/ff4444/ffffff');
+  (47, 'https://images-na.ssl-images-amazon.com/images/I/81eOrypofyL._AC_SX679_.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (48, 'http://dummyimage.com/183x221.jpg/5fa2dd/ffffff');
+  (48, 'https://i.pinimg.com/originals/6d/5b/a4/6d5ba45eeba74d0cbc65ff3c87b7c1c7.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (49, 'http://dummyimage.com/235x249.jpg/dddddd/000000');
+  (49, 'https://www.funcarnival.com/mm5/graphics/00000001/TF3130.jpg');
 insert into images
   (listing_id, image_url)
 values
-  (50, 'http://dummyimage.com/133x131.jpg/5fa2dd/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (47, 'http://dummyimage.com/170x244.png/cc0000/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (44, 'http://dummyimage.com/211x170.bmp/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (42, 'http://dummyimage.com/146x245.bmp/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (13, 'http://dummyimage.com/209x215.jpg/5fa2dd/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (42, 'http://dummyimage.com/193x174.bmp/cc0000/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (40, 'http://dummyimage.com/215x148.jpg/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (3, 'http://dummyimage.com/214x249.bmp/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (10, 'http://dummyimage.com/155x212.bmp/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (45, 'http://dummyimage.com/170x194.jpg/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (13, 'http://dummyimage.com/145x140.jpg/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (36, 'http://dummyimage.com/177x205.png/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (38, 'http://dummyimage.com/121x116.jpg/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (34, 'http://dummyimage.com/243x226.png/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (35, 'http://dummyimage.com/228x183.jpg/5fa2dd/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (50, 'http://dummyimage.com/139x159.jpg/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (22, 'http://dummyimage.com/209x173.png/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (32, 'http://dummyimage.com/155x232.jpg/cc0000/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (20, 'http://dummyimage.com/165x159.jpg/cc0000/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (48, 'http://dummyimage.com/106x129.png/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (36, 'http://dummyimage.com/176x232.jpg/5fa2dd/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (48, 'http://dummyimage.com/183x213.png/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (18, 'http://dummyimage.com/238x162.bmp/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (46, 'http://dummyimage.com/204x160.bmp/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (17, 'http://dummyimage.com/143x222.png/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (37, 'http://dummyimage.com/244x225.jpg/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (45, 'http://dummyimage.com/187x101.jpg/cc0000/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (3, 'http://dummyimage.com/100x249.jpg/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (5, 'http://dummyimage.com/207x100.bmp/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (32, 'http://dummyimage.com/192x239.bmp/cc0000/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (21, 'http://dummyimage.com/112x154.jpg/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (36, 'http://dummyimage.com/237x160.jpg/cc0000/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (20, 'http://dummyimage.com/203x212.bmp/cc0000/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (21, 'http://dummyimage.com/120x126.jpg/5fa2dd/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (5, 'http://dummyimage.com/203x192.jpg/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (20, 'http://dummyimage.com/116x174.bmp/cc0000/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (50, 'http://dummyimage.com/145x245.bmp/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (48, 'http://dummyimage.com/129x238.png/5fa2dd/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (43, 'http://dummyimage.com/223x100.jpg/5fa2dd/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (11, 'http://dummyimage.com/219x154.bmp/5fa2dd/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (36, 'http://dummyimage.com/173x226.jpg/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (27, 'http://dummyimage.com/140x224.png/ff4444/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (25, 'http://dummyimage.com/168x173.png/5fa2dd/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (12, 'http://dummyimage.com/149x210.bmp/5fa2dd/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (6, 'http://dummyimage.com/161x222.jpg/5fa2dd/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (23, 'http://dummyimage.com/218x148.png/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (25, 'http://dummyimage.com/153x122.bmp/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (45, 'http://dummyimage.com/216x103.png/cc0000/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (34, 'http://dummyimage.com/109x194.jpg/dddddd/000000');
-insert into images
-  (listing_id, image_url)
-values
-  (29, 'http://dummyimage.com/112x135.png/5fa2dd/ffffff');
-insert into images
-  (listing_id, image_url)
-values
-  (10, 'http://dummyimage.com/232x197.png/cc0000/ffffff');
+  (50, 'https://www.funcarnival.com/mm5/graphics/00000001/TF3130.jpg');
+
