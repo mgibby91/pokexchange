@@ -73,6 +73,7 @@ app.get('/listings/new', (req, res) => {
 });
 
 app.get('/listings/:id', (req, res) => {
+  console.log('req.params from server', req.params.id);
   res.render('listing.ejs');
 });
 

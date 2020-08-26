@@ -9,16 +9,22 @@ const {
   getAllListingsByCity,
   getMostFavouritedListings,
   getAllListingsByFilters,
-  // getListingByListingID,
+  getListingByListingID,
 } = require('../lib/listing-queries');
 
-router.get('/listings/30', (req, res) => {
+router.get('/listings/:id', (req, res) => {
   const listingID = req.params.id;
-
+  console.log(req.params);
+  // console.log(listingID);
+  getListingByListingID(listingID)
+    .then(result => {
+      // console.log(result);
+      res.send(result)
+    })
+    .catch(err => {
+      console.log('error in listings routes', err);
+    })
 })
-
-
-
 
 
 

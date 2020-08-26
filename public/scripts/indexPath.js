@@ -35,23 +35,22 @@ $(() => {
 
   }
 
+
+
+  const addMostFavourited = function(mostFavouritedArray) {
+
+
+
+  }
+
   $.ajax('/api', { method: 'GET' })
     .then(res => {
-
-      addNewlyListed(res.mostRecent);
-
-    })
-    .catch(err => {
-      console.log(err);
-    })
-
-  $.ajax('/api/listings/30', { method: 'GET' })
-    .then(res => {
       console.log(res);
+      addNewlyListed(res.mostRecent);
     })
     .catch(err => {
       console.log(err);
-    })
+    });
 
 
 

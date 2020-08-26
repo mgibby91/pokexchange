@@ -33,7 +33,7 @@ router.get("/cities/:city", (req, res) => {
     .then((result) => {
       res.send({ result });
     }).catch((err) => {
-      console.error(err)
+      console.error('cities, city', err)
       res.json({ error });
     })
 })
@@ -45,7 +45,7 @@ router.get("/categories/:name", (req, res) => {
     .then((result) => {
       res.send({ result });
     }).catch((err) => {
-      console.error(err);
+      console.error('categories name', err);
       res.json({ error });
     })
 
@@ -57,7 +57,7 @@ router.get("/listings/manage", (req, res) => {
     .then((result) => {
       res.send({ result })
     }).catch((err) => {
-      console.error(err);
+      console.error('listing manage', err);
       res.json({ error })
     })
 })
@@ -69,7 +69,7 @@ router.get("/listings/favourites", (req, res) => {
     .then((result) => {
       res.send({ result })
     }).catch((err) => {
-      console.error(err)
+      console.error('listing favourites', err)
       res.json({ error })
     })
 })
@@ -81,7 +81,7 @@ router.get("/search", (req, res) => {
     .then((result) => {
       res.send({ result })
     }).catch((err) => {
-      console.error(err)
+      console.error('search', err)
       res.send({ error })
     })
 })
@@ -92,16 +92,16 @@ router.get('/', (req, res) => {
   Promise.all([
     getAllListingsByMostRecent(),
     getMostFavouritedListings(),
-    getUserByID(userId),
+    // getUserByID(userId),
   ]).then((result) => {
-    const [result1, result2, result3] = result
+    const [result1, result2] = result
     res.send({
       mostRecent: result1,
       MostFav: result2,
-      userId: result3
+      // userId: result3
     })
   }).catch(err => {
-    console.error(err);
+    console.error('home', err);
     res.status(500).json({ error })
   })
 })
