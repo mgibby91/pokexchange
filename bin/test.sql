@@ -19,6 +19,12 @@
 -- SELECT *
 -- FROM messages;
 
+-- SELECT *
+-- FROM listings
+-- WHERE id = 49;
+
+
 SELECT *
-FROM listings
-WHERE id = 49;
+FROM messages
+ORDER by time_sent;
+
