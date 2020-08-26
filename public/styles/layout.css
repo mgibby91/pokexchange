@@ -1,6 +1,7 @@
 body {
     margin: 0;
     background-color: lightblue;
+    font-family: sans-serif;
 }
 
 nav {
@@ -23,8 +24,12 @@ a#line {
   height: 45px;
 }
 
-#nav, #tagline {
+#nav {
     text-shadow: 5px 5px #3c5aa6;
+}
+
+#tagline {
+  text-shadow: 3px 3px #3c5aa6;
 }
 
 #nav {
@@ -33,7 +38,7 @@ a#line {
     font-size: 50px;
 }
 
-#featured-header, #recent-header {
+#featured-header, #recent-header, #selling-header, #selling-header-edit, #listing-header {
   font-family: 'pokemon_solidnormal';
   text-shadow: 3px 3px #3c5aa6;
   color: #ffcb05;
@@ -138,12 +143,12 @@ section {
 
 
 #featured {
-  width:45%;
+  width: 50%;
   display: flex;
   justify-content: space-around;
   background-color: black;
-  padding: 25px;
-  margin-top: 0px;
+  padding: 20px;
+  margin: 0px 15px 0px;
 }
 
 #featured img, #recent img {
@@ -157,9 +162,10 @@ section {
   font-size: 12px;
 }
 
-input {
+#search_box  {
   width: 300px;
   height: 20px;
+  margin-bottom: 3px;
 }
 
 a img {
@@ -209,11 +215,143 @@ a img {
   color: red;
 }
 
-input.search {
+#search-box {
   height: 20px;
-  width: 300px;
-
+  width: 450px;
 }
+
+#options {
+  margin: 5px 0px 5px;
+}
+
+#options i {
+  position: absolute;
+  font-size: 15px;
+  padding-left: 3px;
+}
+
+#option-fields {
+  margin: 5px;
+  margin-left: 13px;
+  width: 450px;
+}
+
+#option-fields input {
+  width: 50px;
+}
+
+select {
+  font-size: 12px;
+  width: 90px;
+}
+
+#option-fields p {
+  display: flex;
+  justify-content: space-around;
+}
+
+#prices {
+  margin-left: 95px;
+  margin-right: 100px;
+}
+
+
+/*end of index, start of create listing*/
+
+#selling-header, #selling-header-edit, #listing-header {
+  font-family: 'pokemon_solidnormal';
+  margin-right: 550px;
+  margin-top: 10px;
+}
+
+#selling-header-edit {
+  margin-right: 565px;
+}
+
+#new-listing {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+  width: 900px
+}
+
+#new-listing label {
+  display: inline-block;
+  width: 100px;
+  font-size: 15px;
+}
+
+#new-listing button {
+  width: 75px;
+}
+
+/*end of create/edit listings, start of listing details*/
+
+#details img {
+  width: auto;
+  height: 400px;
+}
+
+#details {
+  display: flex;
+  justify-content: flex-start;
+  width: 98%;
+}
+
+#listing-title {
+  font-size: 27px;
+  font-weight: bold;
+}
+
+#listing-middle {
+  display: flex;
+  flex-direction: row;
+  padding-top: 5px;
+  justify-content: space-between;
+  width: 800px;
+}
+
+#middle-details {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  justify-content: space-between;
+  height: 400px;
+  font-size: 20px;
+  padding-left: 10px
+}
+
+#listing-message {
+  width: 120px;
+  font-size: 16px;
+  text-align: left;
+}
+
+#favourite-listing {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-items: space-between;
+}
+
+#favourite-listing a {
+  font-size: 18px;
+  padding-left: 2px;
+}
+
+#item-message {
+  height: 90px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+
+/*-----------Utilities-------------*/
 @font-face {
     font-family: 'pokemon_solidnormal';
     src: url('../fonts/pokemon/pokemon_solid-webfont.woff2') format('woff2'),
@@ -228,4 +366,38 @@ input.search {
          url('../fonts/pokemon/pokemon_hollow-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+/* Pulse - from https://ianlunn.github.io/Hover/#effects, slightly modified */
+@-webkit-keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+#options:hover i{
+  -webkit-animation-name: hvr-pulse;
+  animation-name: hvr-pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
