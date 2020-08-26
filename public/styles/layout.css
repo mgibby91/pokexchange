@@ -238,6 +238,10 @@ a img {
   margin: 5px;
   margin-left: 13px;
   width: 450px;
+<<<<<<< HEAD
+=======
+  display: none;
+>>>>>>> 6701bccb1a8fede66e6e175241ef54c4553e7572
 }
 
 #option-fields input {
@@ -348,10 +352,13 @@ select {
 }
 
 /*-----------Matt's stuff-------------*/
+<<<<<<< HEAD
 #nav-title {
   text-decoration: none;
 }
 
+=======
+>>>>>>> 6701bccb1a8fede66e6e175241ef54c4553e7572
 /*-----------Utilities-------------*/
 @font-face {
   font-family: 'pokemon_solidnormal';
