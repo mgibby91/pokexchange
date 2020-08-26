@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Search Results</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <%- include('partials/_nav') %>
+  <%- include('partials/_side-nav') %>
+
+
+  <!-- Page content -->
+  <main class="container">
+    <section id="search">
+      <input type="text" name="search_query" id="search-box">
+      <button type="submit">Search</button>
+      <section id="options">
+        <a><img src="/resources/pokeball-icon.png" />
+          More Options <i class="fa fa-angle-double-down hvr-pulse"></i></a>
+        <section id="option-fields">
+          <p>
+            <label for="category">Category:
+              <select name="category">
+                <option>Any</option>
+                <option>Accessories</option>
+                <option>Cards</option>
+                <option>Clothing</option>
+                <option>Movies</option>
+                <option>Plushies</option>
+                <option>Toys</option>
+                <option>Video Games</option>
+                <option>Other</option>
+              </select></label>
+            <label for="city">City:
+              <select name="city">
+                <option>Any</option>
+                <option>Calgary</option>
+                <option>Montreal</option>
+                <option>Toronto</option>
+                <option>Vancouver</option>
+                <option>Victoria</option>
+              </select></label>
+            <label for="condition">Condition:
+              <select>
+                <option>Any</option>
+                <option>BNIB</option>
+                <option>CIB</option>
+                <option>Like New</option>
+                <option>Good</option>
+                <option>Well-Loved</option>
+              </select></label>
+          </p>
+          <p id="prices">
+            <label for="min_price">Min price:
+              <input type="text" name="min_price" id="min_price">
+            </label>
+            <label for="min_price">Max price:
+              <input type="text" name="max_price" id="max_price">
+            </label>
+          </p>
+        </section>
+      </section>
+    </section>
+    <section id="recent">
+      <a id="recent-header">Results</a>
+      <article class="listing">
+        <div class="img-date">
+          <img src="/resources/backpack.png" />
+          <a>Posted Aug 24, 2020</a>
+        </div>
+        <div class="summary">
+          <p>Pokémon Backpack</p>
+          <p>$50.00</p>
+          <p>Vancouver</p>
+          <p>
+            <i class="fa fa-heart" id="love"></i>
+          </p>
+        </div>
+      </article>
+      <article class="listing">
+        <div class="img-date">
+          <img src="/resources/plushies.jpg" />
+          <a>Posted Aug 23, 2020</a>
+        </div>
+        <div class="summary">
+          <p>Pokémon Plushies</p>
+          <p>$30.00</p>
+          <p>Victoria</p>
+          <p>
+            <i class="loved fa fa-heart" id="love"></i>
+          </p>
+        </div>
+      </article>
+      <article class="listing">
+        <div class="img-date">
+          <img src="/resources/funko.jpeg" />
+          <a>Posted Aug 22, 2020</a>
+        </div>
+        <div class="summary">
+          <p>Assorted Funko Pops</p>
+          <p>$20.00</p>
+          <p>Montreal</p>
+          <p>
+            <i class="fa fa-heart" id="love"></i>
+          </p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+</body>
+
+</html>

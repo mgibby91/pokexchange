@@ -1,7 +1,7 @@
 body {
-    margin: 0;
-    background-color: lightblue;
-    font-family: sans-serif;
+  margin: 0;
+  background-color: lightblue;
+  font-family: sans-serif;
 }
 
 nav {
@@ -9,23 +9,23 @@ nav {
   display: flex;
   justify-content: space-between;
   position: fixed;
-  width: 97%;
+  width: 100%;
   padding: 1.5%;
   z-index: 2;
 }
 
 a#line {
-  width: 1px;
+  width: 2px;
   position: absolute;
   background-color: #2a75bb;
-  border-left: 1px solid #2a75bb;
-  margin-left: 220px;
+  border-right: 1px solid #2a75bb;
+  margin-left: 221px;
   margin-top: 20px;
   height: 45px;
 }
 
 #nav {
-    text-shadow: 5px 5px #3c5aa6;
+  text-shadow: 5px 5px #3c5aa6;
 }
 
 #tagline {
@@ -33,9 +33,9 @@ a#line {
 }
 
 #nav {
-    font-family: 'pokemon_solidnormal';
-    color: #ffcb05;
-    font-size: 50px;
+  font-family: 'pokemon_solidnormal';
+  color: #ffcb05;
+  font-size: 50px;
 }
 
 #featured-header, #recent-header, #selling-header, #selling-header-edit, #listing-header {
@@ -46,13 +46,13 @@ a#line {
 }
 
 a#tagline {
-    color: #ffffff;
-    z-index: 1;
-    margin-left: 120px;
-    margin-top: 65px;
-    font-family: "Arial Black", Gadget, sans-serif;
-    position: absolute;
-    font-size: 75%;
+  color: #ffffff;
+  z-index: 1;
+  margin-left: 120px;
+  margin-top: 65px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  position: absolute;
+  font-size: 75%;
 }
 
 div#links {
@@ -61,7 +61,7 @@ div#links {
   flex-direction: column;
   justify-content: center;
   color: #ffffff;
-    font-family: "Arial", Gadget, sans-serif;
+  font-family: "Arial", Gadget, sans-serif;
   font-weight: bold;
 }
 
@@ -79,7 +79,6 @@ div#links {
 
 #user {
   text-align: right;
-
 }
 
 .sidenav {
@@ -93,7 +92,7 @@ div#links {
   font-family: Tahoma, Geneva, sans-serif;
   font-size: 1.0em;
   overflow-x: hidden;
-  position:fixed;
+  position: fixed;
   margin-top: auto;
   z-index: 1;
 }
@@ -109,14 +108,14 @@ div#links {
 
 ul {
   margin-top: 5px;
-  list-style-image: url('../resources/pokeball-icon.png');
+  list-style-image: url("/resources/pokeball-icon.png");
   line-height: 15px;
   display: block;
   vertical-align: middle;
 }
 
 li {
-    padding: 3px;
+  padding: 3px;
   vertical-align: middle;
 }
 
@@ -141,7 +140,6 @@ section {
   margin: 20px;
 }
 
-
 #featured {
   width: 50%;
   display: flex;
@@ -162,7 +160,7 @@ section {
   font-size: 12px;
 }
 
-#search_box  {
+#search_box {
   width: 300px;
   height: 20px;
   margin-bottom: 3px;
@@ -185,7 +183,7 @@ a img {
   margin: 10px;
 }
 
-.img-date{
+.img-date {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -193,14 +191,20 @@ a img {
   vertical-align: middle;
   font-size: 15px;
 }
-/*.listing img*/
 
+/*.listing img*/
 .summary {
   text-align: right;
   padding-right: 3px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+
+.summary p {
+  margin: 0;
+  padding: 0;
 }
 
 #love {
@@ -255,9 +259,7 @@ select {
   margin-right: 100px;
 }
 
-
 /*end of index, start of create listing*/
-
 #selling-header, #selling-header-edit, #listing-header {
   font-family: 'pokemon_solidnormal';
   margin-right: 550px;
@@ -273,7 +275,7 @@ select {
   flex-direction: column;
   justify-content: space-between;
   height: 300px;
-  width: 900px
+  width: 900px;
 }
 
 #new-listing label {
@@ -287,7 +289,6 @@ select {
 }
 
 /*end of create/edit listings, start of listing details*/
-
 #details img {
   width: auto;
   height: 400px;
@@ -319,7 +320,7 @@ select {
   justify-content: space-between;
   height: 400px;
   font-size: 20px;
-  padding-left: 10px
+  padding-left: 10px;
 }
 
 #listing-message {
@@ -346,26 +347,20 @@ select {
   margin-bottom: 5px;
 }
 
-
-
-
-
-
+/*-----------Matt's stuff-------------*/
 /*-----------Utilities-------------*/
 @font-face {
-    font-family: 'pokemon_solidnormal';
-    src: url('../fonts/pokemon/pokemon_solid-webfont.woff2') format('woff2'),
-         url('../fonts/pokemon/pokemon_solid-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'pokemon_solidnormal';
+  src: url("/fonts/pokemon/pokemon_solid-webfont.woff2") format("woff2"), url("/fonts/pokemon/pokemon_solid-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'pokemon_hollownormal';
-    src: url('../fonts/pokemon/pokemon_hollow-webfont.woff2') format('woff2'),
-         url('../fonts/pokemon/pokemon_hollow-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'pokemon_hollownormal';
+  src: url("/fonts/pokemon/pokemon_hollow-webfont.woff2") format("woff2"), url("/fonts/pokemon/pokemon_hollow-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* Pulse - from https://ianlunn.github.io/Hover/#effects, slightly modified */
@@ -391,7 +386,7 @@ select {
   }
 }
 
-#options:hover i{
+#options:hover i {
   -webkit-animation-name: hvr-pulse;
   animation-name: hvr-pulse;
   -webkit-animation-duration: 1s;

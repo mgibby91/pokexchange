@@ -47,8 +47,8 @@ const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/", usersRoutes);
-app.use("/", widgetsRoutes);
+app.use("/api/", usersRoutes);
+app.use("/api/", widgetsRoutes);
 // Note: mount other resources here, using the same pattern above
 
 
@@ -56,7 +56,7 @@ app.use("/", widgetsRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index.ejs");
 });
 
 app.listen(PORT, () => {

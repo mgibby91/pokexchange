@@ -17,7 +17,7 @@ const {
   getAllListingsByFilters,
 } = require('../lib/listing-queries'); // need to change back to listing-queries
 
-const { getUserByID, getUserByUsername} = require('../lib/users_queries')
+const { getUserByID, getUserByUsername} = require('../lib/users-queries')
 
 const {
   getAllMessagesByListingID,
@@ -90,13 +90,13 @@ router.get("/search", (req, res) => {
 router.get('/', (req, res) => {
   const userId = req.session.user_id;
   Promise.all([
-    getAllListingsByMostRecent(),         
+    getAllListingsByMostRecent(),
     getMostFavouritedListings(),
     getUserByID(userId),
   ]).then((result) => {
     const [result1, result2, result3] = result
-    res.send({mostRecent:result1, 
-      MostFav:result2, 
+    res.send({mostRecent:result1,
+      MostFav:result2,
       userId: result3
     })
   }).catch(err =>{

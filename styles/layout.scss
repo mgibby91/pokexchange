@@ -1,9 +1,410 @@
-// See: https://sass-lang.com/
-
 body {
-  background-color: #EEE;
+    margin: 0;
+    background-color: lightblue;
+    font-family: sans-serif;
+}
 
-  h1 {
-    color: #244751;
+nav {
+  background-color: #2a75bb;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  padding: 1.5%;
+  z-index: 2;
+}
+
+a#line {
+  width: 2px;
+  position: absolute;
+  background-color: #2a75bb;
+  border-right: 1px solid #2a75bb;
+  margin-left: 221px;
+  margin-top: 20px;
+  height: 45px;
+}
+
+#nav {
+    text-shadow: 5px 5px #3c5aa6;
+}
+
+#tagline {
+  text-shadow: 3px 3px #3c5aa6;
+}
+
+#nav {
+    font-family: 'pokemon_solidnormal';
+    color: #ffcb05;
+    font-size: 50px;
+}
+
+#featured-header, #recent-header, #selling-header, #selling-header-edit, #listing-header {
+  font-family: 'pokemon_solidnormal';
+  text-shadow: 3px 3px #3c5aa6;
+  color: #ffcb05;
+  font-size: 35px;
+}
+
+a#tagline {
+    color: #ffffff;
+    z-index: 1;
+    margin-left: 120px;
+    margin-top: 65px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    position: absolute;
+    font-size: 75%;
+}
+
+div#links {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+    font-family: "Arial", Gadget, sans-serif;
+  font-weight: bold;
+}
+
+#links div {
+  display: flex;
+  width: 470px;
+  margin-top: 50px;
+  justify-content: space-between;
+}
+
+#links a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#user {
+  text-align: right;
+
+}
+
+.sidenav {
+  padding-top: 140px;
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  left: 0;
+  color: #ffffff;
+  background-color: #3c5aa6;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 1.0em;
+  overflow-x: hidden;
+  position:fixed;
+  margin-top: auto;
+  z-index: 1;
+}
+
+.sidenav .header {
+  padding-left: 15px;
+  font-size: 25px;
+  display: block;
+  color: #ffcb05;
+  font-family: 'pokemon_solidnormal';
+  text-shadow: 2px 2px #2a75bb;
+}
+
+ul {
+  margin-top: 5px;
+  list-style-image: url('/resources/pokeball-icon.png');
+  line-height: 15px;
+  display: block;
+  vertical-align: middle;
+}
+
+li {
+    padding: 3px;
+  vertical-align: middle;
+}
+
+li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main {
+  margin-left: 15%;
+  width: 80%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  padding-top: 130px;
+}
+
+section {
+  margin: 20px;
+}
+
+
+#featured {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  padding: 20px;
+  margin: 0px 15px 0px;
+}
+
+#featured img, #recent img {
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+}
+
+#search {
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+#search_box  {
+  width: 300px;
+  height: 20px;
+  margin-bottom: 3px;
+}
+
+a img {
+  vertical-align: middle;
+}
+
+.listing {
+  background-color: beige;
+  height: 170px;
+  width: 700px;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  vertical-align: middle;
+  font-family: sans-serif;
+  border: 3px solid black;
+  margin: 10px;
+}
+
+.img-date{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 3px;
+  vertical-align: middle;
+  font-size: 15px;
+}
+
+/*.listing img*/
+
+.summary {
+  text-align: right;
+  padding-right: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+
+.summary p {
+  margin: 0;
+  padding: 0;
+}
+
+#love {
+  color: #2a75bb;
+}
+
+#love:hover {
+  color: red;
+}
+
+#love.loved {
+  color: red;
+}
+
+#search-box {
+  height: 20px;
+  width: 450px;
+}
+
+#options {
+  margin: 5px 0px 5px;
+}
+
+#options i {
+  position: absolute;
+  font-size: 15px;
+  padding-left: 3px;
+}
+
+#option-fields {
+  margin: 5px;
+  margin-left: 13px;
+  width: 450px;
+}
+
+#option-fields input {
+  width: 50px;
+}
+
+select {
+  font-size: 12px;
+  width: 90px;
+}
+
+#option-fields p {
+  display: flex;
+  justify-content: space-around;
+}
+
+#prices {
+  margin-left: 95px;
+  margin-right: 100px;
+}
+
+
+/*end of index, start of create listing*/
+
+#selling-header, #selling-header-edit, #listing-header {
+  font-family: 'pokemon_solidnormal';
+  margin-right: 550px;
+  margin-top: 10px;
+}
+
+#selling-header-edit {
+  margin-right: 565px;
+}
+
+#new-listing {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+  width: 900px
+}
+
+#new-listing label {
+  display: inline-block;
+  width: 100px;
+  font-size: 15px;
+}
+
+#new-listing button {
+  width: 75px;
+}
+
+/*end of create/edit listings, start of listing details*/
+
+#details img {
+  width: auto;
+  height: 400px;
+}
+
+#details {
+  display: flex;
+  justify-content: flex-start;
+  width: 98%;
+}
+
+#listing-title {
+  font-size: 27px;
+  font-weight: bold;
+}
+
+#listing-middle {
+  display: flex;
+  flex-direction: row;
+  padding-top: 5px;
+  justify-content: space-between;
+  width: 800px;
+}
+
+#middle-details {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  justify-content: space-between;
+  height: 400px;
+  font-size: 20px;
+  padding-left: 10px
+}
+
+#listing-message {
+  width: 120px;
+  font-size: 16px;
+  text-align: left;
+}
+
+#favourite-listing {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-items: space-between;
+}
+
+#favourite-listing a {
+  font-size: 18px;
+  padding-left: 2px;
+}
+
+#item-message {
+  height: 90px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/*-----------Matt's stuff-------------*/
+
+
+
+
+/*-----------Utilities-------------*/
+@font-face {
+    font-family: 'pokemon_solidnormal';
+    src: url('/fonts/pokemon/pokemon_solid-webfont.woff2') format('woff2'),
+         url('/fonts/pokemon/pokemon_solid-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pokemon_hollownormal';
+    src: url('/fonts/pokemon/pokemon_hollow-webfont.woff2') format('woff2'),
+         url('/fonts/pokemon/pokemon_hollow-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Pulse - from https://ianlunn.github.io/Hover/#effects, slightly modified */
+@-webkit-keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
   }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+#options:hover i{
+  -webkit-animation-name: hvr-pulse;
+  animation-name: hvr-pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }

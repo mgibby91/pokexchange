@@ -5,7 +5,7 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="../public/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -13,58 +13,22 @@
   </head>
 
   <body>
-    <nav>
-      <a id=line> </a>
-        <span id="nav">Pokéxchange</span>
-        <a id="tagline">Gotta collect it all!</a>
-        <div id="links">
-          <a id="user">Welcome, ________!</a>
-          <div>
-            <a href="/messages">Inbox</a>
-            <a href="/my_listings">Manage Listings</a>
-            <a href="/listings/new">Create New Listing</a>
-            <a href="/logout">Log Out</a>
-          </div>
-        </div>
-    </nav>
-    
-    <!-- Side navigation -->
-    <div class="sidenav">
-    <a class="header">Locations</a>
-      <ul>
-      <li><a href="/cities/vancouver">Vancouver</a></li>
-      <li><a href="/cities/montreal">Montreal</a></li>
-      <li><a href="/cities/toronto">Toronto</a></li>
-      <li><a href="/cities/calgary">Calgary</a></li>
-      <li><a href="/cities/victoria">Victoria</a></li>
-  </ul>
-    <a class="header">Categories</a>
-        <ul>
-        <li><a href="/categories/cards">Cards</a></li>
-        <li><a href="/categories/video-games">Video Games</a></li>
-        <li><a href="/categories/clothing">Clothing</a></li>
-        <li><a href="/categories/toys">Toys</a></li>
-        <li><a href="/categories/plushies">Plushies</a></li>
-        <li><a href="/categories/movies">Movies</a></li>
-        <li><a href="/categories/accessories">Accessories</a></li>
-        <li><a href="/categories/other">¯\_(ツ)_/¯</a></li>
-      </ul>
-    <a class="header">Favourites</a>
-    </div>
+    <%- include('partials/_nav') %>
+    <%- include('partials/_side-nav') %>
 
 <!-- Page content -->
     <main class="container" id="create-listing">
-      <div id="selling-header-edit">Update your stuff!</div>
+      <div id="selling-header">What're you selling?</div>
       <section id="listing-info">
         <form id="new-listing" method="post" action="/my-listings">
           <label for="title">Title:
-          <input type="text" name="title" value="title">
+          <input type="text" name="title">
           </label>
           <label for="img-url">Image URL:
-          <input type="text" name="img-url" value="http://imgs.com/img.jpg">
+          <input type="text" name="img-url" value="http://">
           </label>
           <label for="price">Price:
-          <input type="text" name="price" value="$50.00">
+          <input type="text" name="price" value="$0.00">
           </label>
         <label for="category">Category:
           <select name="category">
@@ -93,7 +57,7 @@
             <option>Good</option>
             <option>Well-Loved</option>
           </select></label>
-          <button>Update</button>
+          <button>Create</button>
         </form>
       </section>
     </main>

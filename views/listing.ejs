@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Listing Details</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <%- include('partials/_nav') %>
+  <%- include('partials/_side-nav') %>
+  <!-- Page content -->
+  <main class="container" id="listing-details">
+    <div id="listing-header">
+      The important stuff
+    </div>
+    <section id="details">
+      <div id="top">
+        <a id="listing-title">Pokémon Backpack (Vancouver)</a><br>
+        <a>Posted Aug 24, 2020</a>
+        <div id="listing-middle">
+          <img src="/resources/backpack.png">
+          <div id="middle-details">
+            <a><b>Category:</b> Accessories</a>
+            <a><b>Condition:</b> Like New</a>
+            <a><b>$50.00</b></a>
+            <br>
+            <p>
+              This backpack is a rare find! Barely used, in fantastic condition. Willing to reduce price if you can meet
+              close to me.
+            </p>
+            <p id="favourite-listing">
+              <a>Like this? <i class="fa fa-heart" id="love"></i></a>
+              <textarea id="item-message"></textarea>
+              <button id="listing-message">Contact Seller</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
