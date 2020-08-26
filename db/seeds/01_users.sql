@@ -1,23 +1,23 @@
 insert into users
   (username, email, password)
 values
-  ('cedgars0', 'bthorndycraft0@tamu.edu', 'uMIo5IVm4Y');
+  ('theboys_arbok_intown', 'gpeche3@chron.com', 'wDmdiJHdshU');
 insert into users
   (username, email, password)
 values
-  ('mlindenman1', 'glickorish1@bluehost.com', 'HBNnbx33i3');
+  ('pi_cashew123', 'bryce2@paginegialle.it', 'WavldE1');
 insert into users
   (username, email, password)
 values
-  ('pkynastone2', 'bryce2@paginegialle.it', 'WavldE1');
+  ('ash_ketchupNmustard', 'glickorish1@bluehost.com', 'HBNnbx33i3');
 insert into users
   (username, email, password)
 values
-  ('mdrust3', 'gpeche3@chron.com', 'wDmdiJHdshU');
+  ('keepyour_meowth_shut', 'hcowpland4@oaic.gov.au', 'qHHorQ8i84');
 insert into users
   (username, email, password)
 values
-  ('apleming4', 'hcowpland4@oaic.gov.au', 'qHHorQ8i84');
+  ('onyx_pected420', 'bthorndycraft0@tamu.edu', 'uMIo5IVm4Y');
 insert into users
   (username, email, password)
 values
