@@ -6,7 +6,7 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const {
   getAllListingsByMostRecent,
   getAllListingsByUserID,
@@ -17,7 +17,7 @@ const {
   getAllListingsByFilters,
 } = require('../lib/listing-queries'); // need to change back to listing-queries
 
-const { getUserByID, getUserByUsername} = require('../lib/users-queries')
+const { getUserByID, getUserByUsername } = require('../lib/users-queries')
 
 const {
   getAllMessagesByListingID,
@@ -27,14 +27,14 @@ const {
 
 
 //get all list from city
-router.get("/cities/:city", (req, res) =>{
+router.get("/cities/:city", (req, res) => {
   const city = req.params.city;
   getAllListingsByCity(city)
     .then((result) => {
-      res.send({result});
+      res.send({ result });
     }).catch((err) => {
       console.error(err)
-      res.json({error});
+      res.json({ error });
     })
 })
 
@@ -43,10 +43,10 @@ router.get("/categories/:name", (req, res) => {
   const name = req.params.name
   getAllListingsByCategory(name)
     .then((result) => {
-       res.send({result});
+      res.send({ result });
     }).catch((err) => {
       console.error(err);
-      res.json({error});
+      res.json({ error });
     })
 
 })
@@ -54,11 +54,11 @@ router.get("/categories/:name", (req, res) => {
 router.get("/listings/manage", (req, res) => {
   const userId = req.session.user_id;
   getAllListingsByUserID(userId)
-    .then((result) =>{
-       res.send({result})
-    }).catch((err) =>{
+    .then((result) => {
+      res.send({ result })
+    }).catch((err) => {
       console.error(err);
-      res.json({error})
+      res.json({ error })
     })
 })
 
@@ -66,11 +66,11 @@ router.get("/listings/manage", (req, res) => {
 router.get("/listings/favourites", (req, res) => {
   const userId = req.session.user_id;
   getAllListingsUserFavourited(userId)
-    .then((result) =>{
-      res.send({result})
+    .then((result) => {
+      res.send({ result })
     }).catch((err) => {
       console.error(err)
-      res.json({error})
+      res.json({ error })
     })
 })
 
@@ -79,10 +79,10 @@ router.get("/search", (req, res) => {
   console.log(req.query)
   getAllListingsByFilters(req.query)
     .then((result) => {
-      res.send({result})
-    }).catch((err) =>{
-       console.error(err)
-       res.send({error})
+      res.send({ result })
+    }).catch((err) => {
+      console.error(err)
+      res.send({ error })
     })
 })
 
@@ -95,15 +95,17 @@ router.get('/', (req, res) => {
     getUserByID(userId),
   ]).then((result) => {
     const [result1, result2, result3] = result
-    res.send({mostRecent:result1,
-      MostFav:result2,
+    res.send({
+      mostRecent: result1,
+      MostFav: result2,
       userId: result3
     })
-  }).catch(err =>{
+  }).catch(err => {
     console.error(err);
-    res.status(500).json({error})
+    res.status(500).json({ error })
   })
 })
+
 
 
 module.exports = router;

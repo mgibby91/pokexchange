@@ -22,8 +22,8 @@ const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect(() => {
-    console.log('connected to the db');
-  });
+  console.log('connected to the db');
+});
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -44,11 +44,13 @@ app.use(bodyParser.json());
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
+const listingRoutes = require("./routes/listingRoutes");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/", usersRoutes);
 app.use("/api/", widgetsRoutes);
+app.use("/api/", listingRoutes);
 // Note: mount other resources here, using the same pattern above
 
 
@@ -57,6 +59,21 @@ app.use("/api/", widgetsRoutes);
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   res.render("index.ejs");
+});
+
+// *****************************************************************
+// ROUTES FOR LINKS IN NAV
+// *****************************************************************
+app.get('/my_listings', (req, res) => {
+  res.render('manage-listings.ejs');
+});
+
+app.get('/listings/new', (req, res) => {
+  res.render('create-listing.ejs');
+});
+
+app.get('/listings/:id', (req, res) => {
+  res.render('listing.ejs');
 });
 
 app.listen(PORT, () => {

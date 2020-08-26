@@ -22,9 +22,8 @@
 -- SELECT *
 -- FROM listings
 -- WHERE id = 49;
-
-
-SELECT *
+SELECT *, users.username as seller_username
 FROM messages
+  JOIN users ON seller_id = users.id
+WHERE messages.listing_id = 1 AND messages.buyer_id = 2
 ORDER by time_sent;
-
