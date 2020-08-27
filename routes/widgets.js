@@ -87,10 +87,6 @@ router.get("/listings/favourites", (req, res) => {
 
 //for the search part
 router.get("/search", (req, res) => {
-<<<<<<< HEAD
-=======
-  // console.log(req.query)
->>>>>>> cont-FE
   getAllListingsByFilters(req.query)
     .then((result) => {
       res.send({ result })
@@ -159,7 +155,7 @@ router.post("/listings/manage/:id/delete", (req,res) => {
 })
 
 
-//edite card by listId 
+//edite card by listId
 router.post("/listings/manage/:id", (req, res) => {
   const updateInfo = req.body;
   const listingId = req.params.id;
@@ -172,7 +168,7 @@ router.post("/listings/manage/:id", (req, res) => {
     })
 })
 
-//add cards in the listing 
+//add cards in the listing
 router.post("/listings/manage", (req, res) => {
   const {obj, picture} = req.body; //should be a json here
   addListingWithImgs(obj, picture)
