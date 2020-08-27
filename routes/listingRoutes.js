@@ -15,7 +15,7 @@ const {
 router.get('/listings/:id', (req, res) => {
   const listingID = req.params.id;
   console.log(req.params);
-  // console.log(listingID);
+  console.log(listingID);
   getListingByListingID(listingID)
     .then(result => {
       // console.log(result);

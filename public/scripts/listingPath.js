@@ -14,13 +14,12 @@ $(() => {
         <div id="listing-middle">
           <img src="${listingArray[0].image_url}">
           <div id="middle-details">
-            <a><b>Category:</b> ${listingArray[0].category_name}</a>
-            <a><b>Condition:</b> Like New</a>
-            <a><b>$50.00</b></a>
+            <a><b>Category:</b> ${listingArray[0].name}</a>
+            <a><b>Condition:</b> ${listingArray[0].condition}</a>
+            <a><b>$${(listingArray[0].price / 100).toFixed(2)}</b></a>
             <br>
             <p>
-              This backpack is a rare find! Barely used, in fantastic condition. Willing to reduce price if you can meet
-              close to me.
+             ${listingArray[0].description}
             </p>
             <p id="favourite-listing">
               <a>Like this? <i class="fa fa-heart" id="love"></i></a>
@@ -31,17 +30,20 @@ $(() => {
         </div>
       </div>
     </section>
-    `
+    `;
+
+    $('#listing-details').append(listingHTML);
 
 
   }
 
 
-  const listingID = location.href.slice(location.href.length - 2);
+  const listingID = location.href.split('/')[4];
   console.log(listingID);
   $.ajax(`/api/listings/${listingID}`, { method: 'GET' })
     .then(res => {
       console.log(res);
+      addListing(res);
     })
     .catch(err => {
       console.log(err);
