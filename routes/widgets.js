@@ -118,6 +118,7 @@ router.get("/messages/:id", (req, res) => {
         })
     })
 })
+
 //get all messages with users listings
 router.get("/messages", (req, res) => {
   const userId = req.session.user_id;
@@ -153,60 +154,59 @@ router.get('/', (req, res) => {
   })
 })
 
+
 //delete card by listid
 router.post("/listings/manage/:id/delete", (req, res) => {
   const listingID = req.params.id;
   deleteListingByID(listingID)
-    .then(() => {
+    .then((results) => {
       console.log("cancelled");
-      res.redirect("/listings/manage")
+      res.send({ results});
     }).catch((err) => {
       console.error(err);
       res.json({ err });
     })
 })
-
 
 //edite card by listId
 router.post("/listings/manage/:id", (req, res) => {
   const updateInfo = req.body;
   const listingId = req.params.id;
-  editListingByID(listingId, updateInfo)
-    .then(() => {
-      res.redirect("/listings")
+   editListingByID(listingId, updateInfo)
+    .then((results) => {
+      res.send({results})
     }).catch((err) => {
-      console.error(err);
       res.json({ err });
     })
 })
+
 
 //add cards in the listing
 router.post("/listings/manage", (req, res) => {
   const { obj, picture } = req.body; //should be a json here
   addListingWithImgs(obj, picture)
-    .then(() => {
-      console.log(req.body)
+    .then((results) => {
       console.log("you added the these new informaiton")
-      res.redirect("/listings/manage")
+      res.send({results})
     }).catch((err) => {
       console.error(err);
       res.json({ err });
     })
 })
 
+
+
 //add message
 router.post("/message", (req, res) => {
   const obj = req.body;
   addMessage(obj)
-    .then(() => {
-      res.redirect('/')
+    .then((result) => {
+      res.send({result})
     }).catch((err) => {
       console.error(err);
       res.json({ err })
     })
 })
-
-
 
 
 module.exports = router;
