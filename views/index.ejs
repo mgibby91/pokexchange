@@ -21,56 +21,8 @@
 
   <!-- Page content -->
   <main class="container">
-    <section id="search">
-      <input type="text" name="search_query" id="search-box">
-      <button type="submit">Search</button>
-      <section id="options">
-        <a><img src="/resources/pokeball-icon.png" />
-          More Options <i class="fa fa-angle-double-down hvr-pulse"></i></a>
-        <section id="option-fields">
-          <p>
-            <label for="category">Category:
-              <select name="category">
-                <option>Any</option>
-                <option>Accessories</option>
-                <option>Cards</option>
-                <option>Clothing</option>
-                <option>Movies</option>
-                <option>Plushies</option>
-                <option>Toys</option>
-                <option>Video Games</option>
-                <option>Other</option>
-              </select></label>
-            <label for="city">City:
-              <select name="city">
-                <option>Any</option>
-                <option>Calgary</option>
-                <option>Montreal</option>
-                <option>Toronto</option>
-                <option>Vancouver</option>
-                <option>Victoria</option>
-              </select></label>
-            <label for="condition">Condition:
-              <select>
-                <option>Any</option>
-                <option>BNIB</option>
-                <option>CIB</option>
-                <option>Like New</option>
-                <option>Good</option>
-                <option>Well-Loved</option>
-              </select></label>
-          </p>
-          <p id="prices">
-            <label for="min_price">Min price:
-              <input type="text" name="min_price" id="min_price">
-            </label>
-            <label for="min_price">Max price:
-              <input type="text" name="max_price" id="max_price">
-            </label>
-          </p>
-        </section>
-      </section>
-    </section>
+    <%- include('partials/_search') %>
+
     <a id="featured-header">Featured</a>
     <section id="featured">
       <!-- <a href=""><img src="/resources/backpack.png" /></a>
