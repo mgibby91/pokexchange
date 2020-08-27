@@ -16,12 +16,12 @@
 -- JOIN images ON listing_id = listings.id
 -- WHERE city = 'Calgary';
 
--- SELECT *
--- FROM messages;
+SELECT *
+FROM listings;
 
-SELECT listings.*, listings.id as listing_id, categories.name as category
-FROM listings
-  JOIN categories ON category_id = categories.id
-WHERE categories.name = 'Toys'
-ORDER BY listings.time_posted DESC;
+-- SELECT listings.*, listings.id as listing_id, categories.name as category
+-- FROM listings
+--   JOIN categories ON category_id = categories.id
+-- WHERE categories.name = 'Toys'
+-- ORDER BY listings.time_posted DESC;
 -- LIMIT 10;

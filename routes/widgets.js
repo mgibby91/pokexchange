@@ -185,7 +185,7 @@ router.post("/listings/manage/:id/delete", (req, res) => {
   deleteListingByID(listingID)
     .then((results) => {
       console.log("cancelled");
-      res.send({ results});
+      res.send({ results });
     }).catch((err) => {
       console.error(err);
       res.json({ err });
@@ -196,9 +196,9 @@ router.post("/listings/manage/:id/delete", (req, res) => {
 router.post("/listings/manage/:id", (req, res) => {
   const updateInfo = req.body;
   const listingId = req.params.id;
-   editListingByID(listingId, updateInfo)
+  editListingByID(listingId, updateInfo)
     .then((results) => {
-      res.send({results})
+      res.send({ results })
     }).catch((err) => {
       res.json({ err });
     })
@@ -207,25 +207,62 @@ router.post("/listings/manage/:id", (req, res) => {
 
 //add cards in the listing
 router.post("/listings/manage", (req, res) => {
-  const { obj, picture } = req.body; //should be a json here
-  addListingWithImgs(obj, picture)
+
+  console.log(req.body);
+
+  for (let key in req.body) {
+    if (!req.body[key]) {
+      res.status(403).send('<h1>Status of 403: Forbidden Request. Please Enter All Fields Before Submitting</h1>');
+    }
+  }
+
+  if (req.body.price[0] === '$') {
+    req.body.price = Number(req.body.price.slice(1)) * 100;
+  } else {
+    req.body.price = Number(req.body.price) * 100;
+  }
+
+  console.log(req.body);
+
+  const imgArray = [req.body.imgUrl];
+  delete req.body.imgUrl;
+  const queryObj = req.body;
+
+  const categoryIDs = {
+    'Cards': 1,
+    'Video-games': 2,
+    'Clothing': 3,
+    'Toys': 4,
+    'Plushies': 5,
+    'Movies': 6,
+    'Accessories': 7,
+    'Other': 8,
+  }
+
+  queryObj.category_id = categoryIDs[queryObj.category];
+  delete queryObj.category;
+
+  queryObj.time_posted = 'now()';
+
+  console.log(queryObj);
+  console.log(imgArray);
+
+  addListingWithImgs(queryObj, imgArray)
     .then((results) => {
-      console.log("you added the these new informaiton")
-      res.send({results})
+      console.log(results);
+      res.render('index.ejs');
     }).catch((err) => {
       console.error(err);
       res.json({ err });
     })
-})
-
-
+});
 
 //add message
 router.post("/messages", (req, res) => {
   const obj = req.body;
   addMessage(obj)
     .then((result) => {
-      res.send({result})
+      res.send({ result })
     }).catch((err) => {
       console.error(err);
       res.json({ err })
