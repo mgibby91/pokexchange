@@ -19,12 +19,8 @@
 -- SELECT *
 -- FROM messages;
 
--- SELECT *
--- FROM listings
--- WHERE id = 49;
-
-
-SELECT *
-FROM messages
-ORDER by time_sent;
+SELECT *, listings.id as listing_id
+FROM listings
+  JOIN images ON listing_id = listings.id
+WHERE listings.id = 1;
 

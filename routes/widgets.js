@@ -6,7 +6,7 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const {
   getAllListingsByMostRecent,
   getAllListingsByUserID,
@@ -17,36 +17,47 @@ const {
   getAllListingsByFilters,
 } = require('../lib/listing-queries'); // need to change back to listing-queries
 
-const { getUserByID, getUserByUsername} = require('../lib/users-queries')
+const { getUserByID, getUserByUsername } = require('../lib/users-queries')
 
 const {
   getAllMessagesByListingID,
   getAllMessagesByUserID,
-  getAllMessagesForUserByListingID
+  getAllMessagesForUserByListingID,
+  getMessagesAndSellerUsernameWithListingIDAndBuyerID,
+  getMessagesAndBuyerUsernameWithListingIDAndSellerID
 } = require('../lib/messages-queries')
 
+const {
+  addListingWithImgs,
+  deleteListingByID,
+  editListingByID } = require("../lib/listings-mod")
 
-//get all list from city
-router.get("/cities/:city", (req, res) =>{
-  const city = req.params.city;
+const { addMessage} = require("../lib/messages-mod")
+
+// get all list from city
+router.get("/cities/:city", (req, res) => {
+  let city = req.params.city;
+  city = city[0].toUpperCase() + city.slice(1);
   getAllListingsByCity(city)
     .then((result) => {
-      res.send({result});
+      res.send({ result });
     }).catch((err) => {
-      console.error(err)
-      res.json({error});
+      console.error('cities, city', err)
+      res.json({ error });
     })
 })
 
 //get all list from category
 router.get("/categories/:name", (req, res) => {
-  const name = req.params.name
+  console.log('categories req', req.params.name);
+  let name = req.params.name;
+  name = name[0].toUpperCase() + name.slice(1);
   getAllListingsByCategory(name)
     .then((result) => {
-       res.send({result});
+      res.send({ result });
     }).catch((err) => {
-      console.error(err);
-      res.json({error});
+      console.error('categories name', err);
+      res.json({ error });
     })
 
 })
@@ -54,11 +65,11 @@ router.get("/categories/:name", (req, res) => {
 router.get("/listings/manage", (req, res) => {
   const userId = req.session.user_id;
   getAllListingsByUserID(userId)
-    .then((result) =>{
-       res.send({result})
-    }).catch((err) =>{
-      console.error(err);
-      res.json({error})
+    .then((result) => {
+      res.send({ result })
+    }).catch((err) => {
+      console.error('listing manage', err);
+      res.json({ error })
     })
 })
 
@@ -66,44 +77,127 @@ router.get("/listings/manage", (req, res) => {
 router.get("/listings/favourites", (req, res) => {
   const userId = req.session.user_id;
   getAllListingsUserFavourited(userId)
-    .then((result) =>{
-      res.send({result})
+    .then((result) => {
+      res.send({ result })
     }).catch((err) => {
-      console.error(err)
-      res.json({error})
+      console.error('listing favourites', err)
+      res.json({ error })
     })
 })
 
 //for the search part
 router.get("/search", (req, res) => {
-  console.log(req.query)
+<<<<<<< HEAD
+=======
+  // console.log(req.query)
+>>>>>>> cont-FE
   getAllListingsByFilters(req.query)
     .then((result) => {
-      res.send({result})
-    }).catch((err) =>{
-       console.error(err)
-       res.send({error})
+      res.send({ result })
+    }).catch((err) => {
+      console.error('search', err)
+      res.send({ error })
     })
+})
+
+
+
+// show message list by seller and buyer
+router.get("/messages/:id", (req, res) => {
+  const sellerId = req.session.user_id;
+  const listingId = req.params.id
+  let obj = {}
+  getMessagesAndBuyerUsernameWithListingIDAndSellerID(listingId, sellerId)
+    .then((results1) => {
+      obj["bySeller"] = results1;
+      const buyerId = results1[0].buyer_id;
+  getMessagesAndSellerUsernameWithListingIDAndBuyerID(listingId, buyerId)
+    .then((results2) => {
+      obj["byBuyer"] = results2
+       res.send(obj)
+    }).catch((error) => {
+      console.error(error);
+      res.json({error});
+    })
+  })
 })
 
 //show all products by time, favourit and user's name
 router.get('/', (req, res) => {
+  req.session.user_id = 1;
   const userId = req.session.user_id;
+  // console.log('session user id', userId);
   Promise.all([
     getAllListingsByMostRecent(),
     getMostFavouritedListings(),
     getUserByID(userId),
   ]).then((result) => {
-    const [result1, result2, result3] = result
-    res.send({mostRecent:result1,
-      MostFav:result2,
+    const [result1, result2, result3] = result;
+    // console.log('home route ', result3[0].username);
+    res.send({
+      mostRecent: result1,
+      MostFav: result2,
       userId: result3
     })
-  }).catch(err =>{
-    console.error(err);
-    res.status(500).json({error})
+  }).catch(err => {
+    console.error('home', err);
+    res.status(500).json({ error })
   })
 })
+
+//delete card by listid
+router.post("/listings/manage/:id/delete", (req,res) => {
+  const listingID = req.params.id;
+  deleteListingByID(listingID)
+    .then(() => {
+      console.log("cancelled");
+      res.redirect("/listings/manage")
+    }).catch((err) =>{
+      console.error(err);
+      res.json({err});
+    })
+})
+
+
+//edite card by listId 
+router.post("/listings/manage/:id", (req, res) => {
+  const updateInfo = req.body;
+  const listingId = req.params.id;
+  editListingByID(listingId, updateInfo)
+    .then(() =>{
+      res.redirect("/listings")
+    }).catch((err) =>{
+      console.error(err);
+      res.json({err});
+    })
+})
+
+//add cards in the listing 
+router.post("/listings/manage", (req, res) => {
+  const {obj, picture} = req.body; //should be a json here
+  addListingWithImgs(obj, picture)
+    .then(() => {
+      console.log("you added the these new informaiton")  //where should i redirect to??
+      res.redirect("/listings/manage")
+    }).catch((err) => {
+      console.error(err);
+      res.json({err});
+    })
+})
+
+//add message
+router.post("/message", (req, res) => {
+  const obj = req.body;
+  addMessage(obj)
+    .then(() => {
+       res.redirect('/')
+    }).catch((err) => {
+      console.error(err);
+      res.json({err})
+    })
+})
+
+
 
 
 module.exports = router;
