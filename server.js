@@ -141,13 +141,9 @@ app.get('/search', (req, res) => {
     })
 });
 
-<<<<<<< HEAD
 app.get('/messages/:id/:otherUser', (req, res) => {
   res.render('messages.ejs');
 });
-=======
-// app.get('/listings/manage')
->>>>>>> bdc900240b883ff073ab5b5a44381e2b006131b9
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
