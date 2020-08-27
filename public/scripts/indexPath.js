@@ -53,6 +53,9 @@ $(() => {
       console.log(res);
       addNewlyListed(res.mostRecent);
       addMostFavourited(res.MostFav);
+
+      $('#user').text(`Welcome! ${res.userId[0].username}`);
+
     })
     .catch(err => {
       console.log(err);

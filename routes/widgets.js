@@ -88,17 +88,20 @@ router.get("/search", (req, res) => {
 
 //show all products by time, favourit and user's name
 router.get('/', (req, res) => {
+  req.session.user_id = 1;
   const userId = req.session.user_id;
+  console.log('session user id', userId);
   Promise.all([
     getAllListingsByMostRecent(),
     getMostFavouritedListings(),
-    // getUserByID(userId),
+    getUserByID(userId),
   ]).then((result) => {
-    const [result1, result2] = result
+    const [result1, result2, result3] = result;
+    console.log('home route ', result3[0].username);
     res.send({
       mostRecent: result1,
       MostFav: result2,
-      // userId: result3
+      userId: result3
     })
   }).catch(err => {
     console.error('home', err);
