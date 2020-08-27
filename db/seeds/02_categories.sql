@@ -3,7 +3,7 @@ INSERT INTO categories
   (name)
 VALUES
   ('Cards'),
-  ('Video Games'),
+  ('Video-games'),
   ('Clothing'),
   ('Toys'),
   ('Plushies'),

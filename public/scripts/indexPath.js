@@ -39,14 +39,23 @@ $(() => {
 
   const addMostFavourited = function(mostFavouritedArray) {
 
+    const featuredHTML = `
+    <a href="/listings/${mostFavouritedArray[0].listing_id}"><img src="${mostFavouritedArray[0].img_url[0]}" /></a>
+    <a href="/listings/${mostFavouritedArray[1].listing_id}"><img src="${mostFavouritedArray[1].img_url[0]}" /></a>
+    <a href="/listings/${mostFavouritedArray[2].listing_id}"><img src="${mostFavouritedArray[2].img_url[0]}" /></a>
+    `
 
-
+    $('#featured').append(featuredHTML);
   }
 
   $.ajax('/api', { method: 'GET' })
     .then(res => {
       console.log(res);
       addNewlyListed(res.mostRecent);
+      addMostFavourited(res.MostFav);
+
+      $('#user').text(`Welcome! ${res.userId[0].username}`);
+
     })
     .catch(err => {
       console.log(err);
