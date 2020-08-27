@@ -73,7 +73,7 @@ app.get('/listings/new', (req, res) => {
 });
 
 app.get('/listings/:id', (req, res) => {
-  console.log('req.params from server', req.params.id);
+  // console.log('req.params from server', req.params.id);
   res.render('listing.ejs');
 });
 
@@ -82,7 +82,12 @@ app.get('/favourites/listings', (req, res) => {
 });
 
 app.get('/cities/:id', (req, res) => {
-  console.log('req.params from server', req.params.id);
+  // console.log('req.params from server', req.params.id);
+  res.render('search-results');
+});
+
+app.get('/categories/:name', (req, res) => {
+  console.log('req.params from server', req.params.name);
   res.render('search-results');
 });
 

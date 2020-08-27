@@ -30,7 +30,7 @@ router.get("/favourites/listings", (req, res) => {
   const userId = req.session.user_id;
   getAllListingsUserFavourited(userId)
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       res.send({ result })
     }).catch((err) => {
       console.error('listing favourites', err)

@@ -26,7 +26,7 @@ const {
 } = require('../lib/messages-queries')
 
 
-//get all list from city
+// get all list from city
 router.get("/cities/:city", (req, res) => {
   let city = req.params.city;
   city = city[0].toUpperCase() + city.slice(1);
@@ -41,7 +41,9 @@ router.get("/cities/:city", (req, res) => {
 
 //get all list from category
 router.get("/categories/:name", (req, res) => {
-  const name = req.params.name
+  console.log('categories req', req.params.name);
+  let name = req.params.name;
+  name = name[0].toUpperCase() + name.slice(1);
   getAllListingsByCategory(name)
     .then((result) => {
       res.send({ result });
@@ -77,7 +79,7 @@ router.get("/listings/favourites", (req, res) => {
 
 //for the search part
 router.get("/search", (req, res) => {
-  console.log(req.query)
+  // console.log(req.query)
   getAllListingsByFilters(req.query)
     .then((result) => {
       res.send({ result })
@@ -91,14 +93,14 @@ router.get("/search", (req, res) => {
 router.get('/', (req, res) => {
   req.session.user_id = 1;
   const userId = req.session.user_id;
-  console.log('session user id', userId);
+  // console.log('session user id', userId);
   Promise.all([
     getAllListingsByMostRecent(),
     getMostFavouritedListings(),
     getUserByID(userId),
   ]).then((result) => {
     const [result1, result2, result3] = result;
-    console.log('home route ', result3[0].username);
+    // console.log('home route ', result3[0].username);
     res.send({
       mostRecent: result1,
       MostFav: result2,
