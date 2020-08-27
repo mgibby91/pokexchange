@@ -77,6 +77,10 @@ app.get('/listings/:id', (req, res) => {
   res.render('listing.ejs');
 });
 
+app.get('/favourites/listings', (req, res) => {
+  res.render('my-favourites.ejs');
+})
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
