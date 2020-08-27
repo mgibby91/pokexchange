@@ -28,7 +28,8 @@ const {
 
 //get all list from city
 router.get("/cities/:city", (req, res) => {
-  const city = req.params.city;
+  let city = req.params.city;
+  city = city[0].toUpperCase() + city.slice(1);
   getAllListingsByCity(city)
     .then((result) => {
       res.send({ result });
