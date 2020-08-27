@@ -25,7 +25,8 @@ const {
   getAllMessagesForUserByListingID,
   getMessagesAndSellerUsernameWithListingIDAndBuyerID,
   getMessagesAndBuyerUsernameWithListingIDAndSellerID,
-  getAllMessagesWithUsersListings
+  getAllMessagesWithUsersListings,
+  getAllMessagesForListingIDBySpecificUsers
 } = require('../lib/messages-queries')
 
 const {
@@ -116,6 +117,21 @@ router.get("/messages/:id", (req, res) => {
           console.error(error);
           res.json({ error });
         })
+    })
+})
+
+//Marisa
+router.get("/messages/:id/:otherUser", (req, res) => {
+  req.session.user_id = 1;
+  const userID = req.session.user_id;
+  const listingID = req.params.id;
+  const otherUserID = req.params.otherUser;
+  getAllMessagesForListingIDBySpecificUsers(userID, otherUserID, listingID)
+    .then((results) => {
+      res.json({ userID, results })
+    }).catch((error) => {
+      console.error(error)
+      res.json({ error })
     })
 })
 
