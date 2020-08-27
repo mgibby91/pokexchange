@@ -1,7 +1,7 @@
 $(document).ready(function() {
 let clicked = false;
 
-$('#options').on('click', function () {
+$('#options-toggle').on('click', function () {
   if (!clicked) {
     $('#option-fields').slideDown('slow');
     clicked = true;
