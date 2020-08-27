@@ -87,16 +87,25 @@ router.get("/listings/favourites", (req, res) => {
     })
 })
 
-//for the search part
-router.get("/search", (req, res) => {
-  getAllListingsByFilters(req.query)
-    .then((result) => {
-      res.send({ result })
-    }).catch((err) => {
-      console.error('search', err)
-      res.send({ error })
-    })
-})
+// //for the search part
+// router.get("/search/", (req, res) => {
+//   // console.log('req.query', req.query);
+//   let queryObj;
+//   for (let item in req.query) {
+//     // console.log('key', item);
+//     queryObj = item;
+//   }
+//   const query = JSON.parse(queryObj);
+//   // console.log('query', query);
+//   getAllListingsByFilters(query)
+//     .then((result) => {
+//       console.log('result', result);
+//       res.render('search-results');
+//     }).catch((err) => {
+//       console.error('search', err)
+//       res.send({ error })
+//     })
+// })
 
 
 
@@ -199,16 +208,22 @@ router.post("/listings/manage/:id", (req, res) => {
 
 //add cards in the listing
 router.post("/listings/manage", (req, res) => {
-  const { obj, picture } = req.body; //should be a json here
-  addListingWithImgs(obj, picture)
-    .then(() => {
-      console.log(req.body)
-      console.log("you added the these new informaiton")
-      res.redirect("/listings/manage")
-    }).catch((err) => {
-      console.error(err);
-      res.json({ err });
-    })
+  console.log('req.query', req.query);
+  console.log('req.body', req.body);
+  console.log('req.params', req.params);
+
+  res.render('index.ejs');
+
+  // const { obj, picture } = req.body; //should be a json here
+  // addListingWithImgs(obj, picture)
+  //   .then(() => {
+  //     console.log(req.body)
+  //     console.log("you added the these new informaiton")
+  //     res.redirect("/listings/manage")
+  //   }).catch((err) => {
+  //     console.error(err);
+  //     res.json({ err });
+  //   })
 })
 
 //add message
