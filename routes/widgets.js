@@ -27,6 +27,12 @@ const {
   getMessagesAndBuyerUsernameWithListingIDAndSellerID
 } = require('../lib/messages-queries')
 
+const {
+  addListingWithImgs,
+  deleteListingByID,
+  editListingByID } = require("../lib/listings-mod")
+
+const { addMessage} = require("../lib/messages-mod")
 
 //get all list from city
 router.get("/cities/:city", (req, res) => {
