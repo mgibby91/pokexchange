@@ -25,7 +25,8 @@ const {
   getAllMessagesForUserByListingID,
   getMessagesAndSellerUsernameWithListingIDAndBuyerID,
   getMessagesAndBuyerUsernameWithListingIDAndSellerID,
-  getAllMessagesWithUsersListings
+  getAllMessagesWithUsersListings,
+  getAllMessagesForListingIDBySpecificUsers
 } = require('../lib/messages-queries')
 
 const {
@@ -108,7 +109,7 @@ router.get("/listings/favourites", (req, res) => {
 
 
 
-// show message list by seller and buyer
+// show message list by seller and buyer - NOT CURRENTLY USED
 router.get("/messages/:id", (req, res) => {
   const sellerId = req.session.user_id;
   const listingId = req.params.id
@@ -127,12 +128,29 @@ router.get("/messages/:id", (req, res) => {
         })
     })
 })
+
+//Marisa
+router.get("/messages/:id/:otherUser", (req, res) => {
+  req.session.user_id = 1;
+  const userID = req.session.user_id;
+  const listingID = req.params.id;
+  const otherUserID = req.params.otherUser;
+  getAllMessagesForListingIDBySpecificUsers(userID, otherUserID, listingID)
+    .then((results) => {
+      res.json({ userID, results });
+    }).catch((error) => {
+      console.error(error);
+      res.json({ error });
+    });
+});
+
 //get all messages with users listings
 router.get("/messages", (req, res) => {
-  const userId = req.session.user_id;
-  getAllMessagesWithUsersListings(userId)
+  req.session.user_id = 1;
+  const userID = req.session.user_id;
+  getAllMessagesWithUsersListings(userID)
     .then((results) => {
-      res.json({ results })
+      res.json({ userID, results })
     }).catch((error) => {
       console.error(error)
       res.json({ error })
@@ -175,7 +193,6 @@ router.post("/listings/manage/:id/delete", (req, res) => {
     })
 })
 
-
 //edite card by listId
 router.post("/listings/manage/:id", (req, res) => {
   const updateInfo = req.body;
@@ -210,7 +227,7 @@ router.post("/listings/manage", (req, res) => {
 })
 
 //add message
-router.post("/message", (req, res) => {
+router.post("/messages", (req, res) => {
   const obj = req.body;
   addMessage(obj)
     .then(() => {
@@ -221,8 +238,4 @@ router.post("/message", (req, res) => {
     })
 })
 
-
-
-
 module.exports = router;
-
