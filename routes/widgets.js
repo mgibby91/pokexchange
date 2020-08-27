@@ -243,6 +243,7 @@ router.post("/listings/manage", (req, res) => {
   delete queryObj.category;
 
   queryObj.time_posted = 'now()';
+  queryObj.user_id = req.session.user_id;
 
   console.log(queryObj);
   console.log(imgArray);
