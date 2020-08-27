@@ -165,9 +165,11 @@ router.post("/listings/manage/:id", (req, res) => {
 //add cards in the listing 
 router.post("/listings/manage", (req, res) => {
   const {obj, picture} = req.body; //should be a json here
+  
   addListingWithImgs(obj, picture)
     .then(() => {
-      console.log("you added the these new informaiton")  //where should i redirect to??
+      console.log(req.body)
+      console.log("you added the these new informaiton")  
       res.redirect("/listings/manage")
     }).catch((err) => {
       console.error(err);
