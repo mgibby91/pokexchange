@@ -20,7 +20,17 @@
   <!-- Page content -->
   <main class="container" id="messages-container">
     <section id="messages-list">
+      <%for(let chain of messages) { %>
 
+
+    <article class="message-summary" data-id="<%=chain.id%>">
+        <a class="chain-title"><%=chain.title%></a>
+        <img src="/resources/pokeball-icon.png" />
+        <a class="other-username"><%=chain.otherUsername%></a>
+        <img src="/resources/pokeball-icon.png" />
+        <a class="message-count"><%=chain.total_messages_exchanged%> messages</a>
+        </article>
+      <% } %>
     </section>
     <section id="message-chain">
       <article class="user-message">
