@@ -101,7 +101,6 @@ app.get('/categories/:name', (req, res) => {
   res.render('search-results');
 });
 
-<<<<<<< HEAD
 app.get('/search', (req, res) => {
 
   console.log('req query', req.query);
@@ -144,12 +143,6 @@ app.get('/search', (req, res) => {
 
 // app.get('/listings/manage')
 
-=======
-app.get('/messages', (req, res) => {
-  res.render('messages.ejs');
-});
-
->>>>>>> b9c1c726d02799c3433b3e57ed0f37b219966a4a
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
