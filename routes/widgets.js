@@ -86,16 +86,25 @@ router.get("/listings/favourites", (req, res) => {
     })
 })
 
-//for the search part
-router.get("/search", (req, res) => {
-  getAllListingsByFilters(req.query)
-    .then((result) => {
-      res.send({ result })
-    }).catch((err) => {
-      console.error('search', err)
-      res.send({ error })
-    })
-})
+// //for the search part
+// router.get("/search/", (req, res) => {
+//   // console.log('req.query', req.query);
+//   let queryObj;
+//   for (let item in req.query) {
+//     // console.log('key', item);
+//     queryObj = item;
+//   }
+//   const query = JSON.parse(queryObj);
+//   // console.log('query', query);
+//   getAllListingsByFilters(query)
+//     .then((result) => {
+//       console.log('result', result);
+//       res.render('search-results');
+//     }).catch((err) => {
+//       console.error('search', err)
+//       res.send({ error })
+//     })
+// })
 
 
 
