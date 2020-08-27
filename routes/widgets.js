@@ -24,7 +24,8 @@ const {
   getAllMessagesByUserID,
   getAllMessagesForUserByListingID,
   getMessagesAndSellerUsernameWithListingIDAndBuyerID,
-  getMessagesAndBuyerUsernameWithListingIDAndSellerID
+  getMessagesAndBuyerUsernameWithListingIDAndSellerID,
+  getAllMessagesWithUsersListings
 } = require('../lib/messages-queries')
 
 const {
@@ -87,10 +88,7 @@ router.get("/listings/favourites", (req, res) => {
 
 //for the search part
 router.get("/search", (req, res) => {
-<<<<<<< HEAD
-=======
   // console.log(req.query)
->>>>>>> cont-FE
   getAllListingsByFilters(req.query)
     .then((result) => {
       res.send({ result })
@@ -120,6 +118,17 @@ router.get("/messages/:id", (req, res) => {
       res.json({error});
     })
   })
+})
+//get all messages with users listings
+router.get("/messages", (req, res) => {
+  const userId = req.session.user_id;
+  getAllMessagesWithUsersListings(userId)
+    .then((results) => {
+      res.json({results})
+    }).catch((error) => {
+      console.error(error)
+      res.json({error})
+    })
 })
 
 //show all products by time, favourit and user's name
