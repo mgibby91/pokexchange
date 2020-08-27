@@ -95,6 +95,10 @@ app.get('/messages', (req, res) => {
   res.render('messages.ejs');
 });
 
+app.get('/messages/:id/:otherUser', (req, res) => {
+  res.render('messages.ejs');
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
