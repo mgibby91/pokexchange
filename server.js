@@ -139,7 +139,9 @@ app.get('/search', (req, res) => {
     }).catch((err) => {
       console.error('search', err)
     })
-})
+});
+
+// app.get('/listings/manage')
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

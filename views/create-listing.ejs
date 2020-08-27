@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+  <title>Home Page</title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <body>
-    <%- include('partials/_nav') %>
-    <%- include('partials/_side-nav') %>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
 
-<!-- Page content -->
-    <main class="container" id="create-listing">
-      <div id="selling-header">What're you selling?</div>
-      <section id="listing-info">
-        <form id="new-listing" method="post" action="/my-listings">
-          <label for="title">Title:
+<body>
+  <%- include('partials/_nav') %>
+  <%- include('partials/_side-nav') %>
+
+  <!-- Page content -->
+  <main class="container" id="create-listing">
+    <div id="selling-header">What're you selling?</div>
+    <section id="listing-info">
+      <form id="new-listing" method="POST" action="/api/listings/manage">
+        <label for="title">Title:
           <input type="text" name="title">
-          </label>
-          <label for="img-url">Image URL:
+        </label>
+        <label for="img-url">Image URL:
           <input type="text" name="img-url" value="http://">
-          </label>
-          <label for="price">Price:
+        </label>
+        <label for="price">Price:
           <input type="text" name="price" value="$0.00">
-          </label>
+        </label>
         <label for="category">Category:
           <select name="category">
             <option>Accessories</option>
@@ -57,9 +58,10 @@
             <option>Good</option>
             <option>Well-Loved</option>
           </select></label>
-          <button>Create</button>
-        </form>
-      </section>
-    </main>
-  </body>
+        <button type='submit'>Create</button>
+      </form>
+    </section>
+  </main>
+</body>
+
 </html>
