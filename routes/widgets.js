@@ -100,7 +100,7 @@ router.get("/search", (req, res) => {
 
 
 
-// show message list by seller and buyer
+// show message list by seller and buyer - NOT CURRENTLY USED
 router.get("/messages/:id", (req, res) => {
   const sellerId = req.session.user_id;
   const listingId = req.params.id
@@ -128,12 +128,12 @@ router.get("/messages/:id/:otherUser", (req, res) => {
   const otherUserID = req.params.otherUser;
   getAllMessagesForListingIDBySpecificUsers(userID, otherUserID, listingID)
     .then((results) => {
-      res.json({ userID, results })
+      res.json({ userID, results });
     }).catch((error) => {
-      console.error(error)
-      res.json({ error })
-    })
-})
+      console.error(error);
+      res.json({ error });
+    });
+});
 
 //get all messages with users listings
 router.get("/messages", (req, res) => {
