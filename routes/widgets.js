@@ -24,7 +24,8 @@ const {
   getAllMessagesByUserID,
   getAllMessagesForUserByListingID,
   getMessagesAndSellerUsernameWithListingIDAndBuyerID,
-  getMessagesAndBuyerUsernameWithListingIDAndSellerID
+  getMessagesAndBuyerUsernameWithListingIDAndSellerID,
+  getAllMessagesWithUsersListings
 } = require('../lib/messages-queries')
 
 const {
@@ -87,6 +88,10 @@ router.get("/listings/favourites", (req, res) => {
 
 //for the search part
 router.get("/search", (req, res) => {
+<<<<<<< HEAD
+=======
+  // console.log(req.query)
+>>>>>>> 5a93dfb868b940284ba167e60e6b2c80b68ccc19
   getAllListingsByFilters(req.query)
     .then((result) => {
       res.send({ result })
@@ -115,6 +120,17 @@ router.get("/messages/:id", (req, res) => {
           console.error(error);
           res.json({ error });
         })
+    })
+})
+//get all messages with users listings
+router.get("/messages", (req, res) => {
+  const userId = req.session.user_id;
+  getAllMessagesWithUsersListings(userId)
+    .then((results) => {
+      res.json({results})
+    }).catch((error) => {
+      console.error(error)
+      res.json({error})
     })
 })
 
@@ -170,10 +186,16 @@ router.post("/listings/manage/:id", (req, res) => {
 
 //add cards in the listing
 router.post("/listings/manage", (req, res) => {
+<<<<<<< HEAD
   const { obj, picture } = req.body; //should be a json here
+=======
+  const {obj, picture} = req.body; //should be a json here
+
+>>>>>>> 5a93dfb868b940284ba167e60e6b2c80b68ccc19
   addListingWithImgs(obj, picture)
     .then(() => {
-      console.log("you added the these new informaiton")  //where should i redirect to??
+      console.log(req.body)
+      console.log("you added the these new informaiton")
       res.redirect("/listings/manage")
     }).catch((err) => {
       console.error(err);
