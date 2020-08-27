@@ -106,7 +106,20 @@ router.get("/listings/favourites", (req, res) => {
 //       res.send({ error })
 //     })
 // })
-
+//Marisa
+router.get("/messages/:id/:otherUser", (req, res) => {
+  req.session.user_id = 1;
+  const userID = req.session.user_id;
+  const listingID = req.params.id;
+  const otherUserID = req.params.otherUser;
+  getAllMessagesForListingIDBySpecificUsers(userID, otherUserID, listingID)
+    .then((results) => {
+      res.json({ userID, results });
+    }).catch((error) => {
+      console.error(error);
+      res.json({ error });
+    });
+});
 
 
 // show message list by seller and buyer - NOT CURRENTLY USED
@@ -128,21 +141,6 @@ router.get("/messages/:id", (req, res) => {
         })
     })
 })
-
-//Marisa
-router.get("/messages/:id/:otherUser", (req, res) => {
-  req.session.user_id = 1;
-  const userID = req.session.user_id;
-  const listingID = req.params.id;
-  const otherUserID = req.params.otherUser;
-  getAllMessagesForListingIDBySpecificUsers(userID, otherUserID, listingID)
-    .then((results) => {
-      res.json({ userID, results });
-    }).catch((error) => {
-      console.error(error);
-      res.json({ error });
-    });
-});
 
 //get all messages with users listings
 router.get("/messages", (req, res) => {
@@ -180,13 +178,14 @@ router.get('/', (req, res) => {
   })
 })
 
+
 //delete card by listid
 router.post("/listings/manage/:id/delete", (req, res) => {
   const listingID = req.params.id;
   deleteListingByID(listingID)
-    .then(() => {
+    .then((results) => {
       console.log("cancelled");
-      res.redirect("/listings/manage")
+      res.send({ results});
     }).catch((err) => {
       console.error(err);
       res.json({ err });
@@ -197,41 +196,36 @@ router.post("/listings/manage/:id/delete", (req, res) => {
 router.post("/listings/manage/:id", (req, res) => {
   const updateInfo = req.body;
   const listingId = req.params.id;
-  editListingByID(listingId, updateInfo)
-    .then(() => {
-      res.redirect("/listings")
+   editListingByID(listingId, updateInfo)
+    .then((results) => {
+      res.send({results})
+    }).catch((err) => {
+      res.json({ err });
+    })
+})
+
+
+//add cards in the listing
+router.post("/listings/manage", (req, res) => {
+  const { obj, picture } = req.body; //should be a json here
+  addListingWithImgs(obj, picture)
+    .then((results) => {
+      console.log("you added the these new informaiton")
+      res.send({results})
     }).catch((err) => {
       console.error(err);
       res.json({ err });
     })
 })
 
-//add cards in the listing
-router.post("/listings/manage", (req, res) => {
-  console.log('req.query', req.query);
-  console.log('req.body', req.body);
-  console.log('req.params', req.params);
 
-  res.render('index.ejs');
-
-  // const { obj, picture } = req.body; //should be a json here
-  // addListingWithImgs(obj, picture)
-  //   .then(() => {
-  //     console.log(req.body)
-  //     console.log("you added the these new informaiton")
-  //     res.redirect("/listings/manage")
-  //   }).catch((err) => {
-  //     console.error(err);
-  //     res.json({ err });
-  //   })
-})
 
 //add message
 router.post("/messages", (req, res) => {
   const obj = req.body;
   addMessage(obj)
-    .then(() => {
-      res.redirect('/')
+    .then((result) => {
+      res.send({result})
     }).catch((err) => {
       console.error(err);
       res.json({ err })
