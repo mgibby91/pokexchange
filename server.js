@@ -91,6 +91,10 @@ app.get('/categories/:name', (req, res) => {
   res.render('search-results');
 });
 
+app.get('/messages', (req, res) => {
+  res.render('messages.ejs');
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

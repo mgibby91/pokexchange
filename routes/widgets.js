@@ -118,12 +118,14 @@ router.get("/messages/:id", (req, res) => {
         })
     })
 })
+
 //get all messages with users listings
 router.get("/messages", (req, res) => {
-  const userId = req.session.user_id;
-  getAllMessagesWithUsersListings(userId)
+  req.session.user_id = 1;
+  const userID = req.session.user_id;
+  getAllMessagesWithUsersListings(userID)
     .then((results) => {
-      res.json({ results })
+      res.json({ userID, results })
     }).catch((error) => {
       console.error(error)
       res.json({ error })
@@ -166,7 +168,6 @@ router.post("/listings/manage/:id/delete", (req, res) => {
     })
 })
 
-
 //edite card by listId
 router.post("/listings/manage/:id", (req, res) => {
   const updateInfo = req.body;
@@ -195,7 +196,7 @@ router.post("/listings/manage", (req, res) => {
 })
 
 //add message
-router.post("/message", (req, res) => {
+router.post("/messages", (req, res) => {
   const obj = req.body;
   addMessage(obj)
     .then(() => {
@@ -206,8 +207,4 @@ router.post("/message", (req, res) => {
     })
 })
 
-
-
-
 module.exports = router;
-
