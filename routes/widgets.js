@@ -22,7 +22,9 @@ const { getUserByID, getUserByUsername } = require('../lib/users-queries')
 const {
   getAllMessagesByListingID,
   getAllMessagesByUserID,
-  getAllMessagesForUserByListingID
+  getAllMessagesForUserByListingID,
+  getMessagesAndSellerUsernameWithListingIDAndBuyerID,
+  getMessagesAndBuyerUsernameWithListingIDAndSellerID
 } = require('../lib/messages-queries')
 
 
@@ -76,7 +78,6 @@ router.get("/listings/favourites", (req, res) => {
 
 //for the search part
 router.get("/search", (req, res) => {
-  console.log(req.query)
   getAllListingsByFilters(req.query)
     .then((result) => {
       res.send({ result })
@@ -84,6 +85,28 @@ router.get("/search", (req, res) => {
       console.error(err)
       res.send({ error })
     })
+})
+
+
+
+// show message list by seller and buyer
+router.get("/messages/:id", (req, res) => {
+  const sellerId = req.session.user_id;
+  const listingId = req.params.id
+  let obj = {}
+  getMessagesAndBuyerUsernameWithListingIDAndSellerID(listingId, sellerId)
+    .then((results1) => {
+      obj["bySeller"] = results1;
+      const buyerId = results1[0].buyer_id;
+  getMessagesAndSellerUsernameWithListingIDAndBuyerID(listingId, buyerId)
+    .then((results2) => {
+      obj["byBuyer"] = results2
+       res.send(obj)
+    }).catch((error) => {
+      console.error(error);
+      res.json({error});
+    })
+  })
 })
 
 //show all products by time, favourit and user's name
@@ -105,6 +128,59 @@ router.get('/', (req, res) => {
     res.status(500).json({ error })
   })
 })
+
+//delete card by listid
+router.post("/listings/manage/:id/delete", (req,res) => {
+  const listingID = req.params.id;
+  deleteListingByID(listingID)
+    .then(() => {
+      console.log("cancelled");
+      res.redirect("/listings/manage")
+    }).catch((err) =>{
+      console.error(err);
+      res.json({err});
+    })
+})
+
+
+//edite card by listId 
+router.post("/listings/manage/:id", (req, res) => {
+  const updateInfo = req.body;
+  const listingId = req.params.id;
+  editListingByID(listingId, updateInfo)
+    .then(() =>{
+      res.redirect("/listings")
+    }).catch((err) =>{
+      console.error(err);
+      res.json({err});
+    })
+})
+
+//add cards in the listing 
+router.post("/listings/manage", (req, res) => {
+  const {obj, picture} = req.body; //should be a json here
+  addListingWithImgs(obj, picture)
+    .then(() => {
+      console.log("you added the these new informaiton")  //where should i redirect to??
+      res.redirect("/listings/manage")
+    }).catch((err) => {
+      console.error(err);
+      res.json({err});
+    })
+})
+
+//add message
+router.post("/message", (req, res) => {
+  const obj = req.body;
+  addMessage(obj)
+    .then(() => {
+       res.redirect('/')
+    }).catch((err) => {
+      console.error(err);
+      res.json({err})
+    })
+})
+
 
 
 
