@@ -10,6 +10,16 @@ const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
 
+const {
+  getAllListingsByMostRecent,
+  getAllListingsByUserID,
+  getAllListingsUserFavourited,
+  getAllListingsByCategory,
+  getAllListingsByCity,
+  getMostFavouritedListings,
+  getAllListingsByFilters,
+} = require('./lib/listing-queries'); // need to change back to listing-queries
+
 // PG database client/connection setup
 
 // const client = require('./lib/db.js');
@@ -87,9 +97,51 @@ app.get('/cities/:id', (req, res) => {
 });
 
 app.get('/categories/:name', (req, res) => {
-  console.log('req.params from server', req.params.name);
+  // console.log('req.params from server', req.params.name);
   res.render('search-results');
 });
+
+app.get('/search', (req, res) => {
+
+  console.log('req query', req.query);
+
+  let queryObj = {}
+
+  for (let key in req.query) {
+    if (req.query[key] === 'Any' || req.query[key] === '') {
+      continue
+    }
+    if (key === 'search_query') {
+      newKey = 'title';
+      queryObj[newKey] = req.query[key];
+      continue
+    }
+
+    if (key === 'min_price' || key === 'max_price') {
+      queryObj[key] = Number(req.query[key]);
+      continue
+    }
+    queryObj[key] = req.query[key];
+  }
+
+  queryObj
+  console.log(queryObj);
+
+
+  getAllListingsByFilters(queryObj)
+    .then((result) => {
+      console.log('result', result);
+      const templateVars = {
+        data: result
+      };
+      // res.render('filter-results', templateVars);
+      res.render('filter-results', templateVars);
+    }).catch((err) => {
+      console.error('search', err)
+    })
+});
+
+// app.get('/listings/manage')
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

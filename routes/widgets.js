@@ -25,7 +25,8 @@ const {
   getAllMessagesForUserByListingID,
   getMessagesAndSellerUsernameWithListingIDAndBuyerID,
   getMessagesAndBuyerUsernameWithListingIDAndSellerID,
-  getAllMessagesWithUsersListings
+  getAllMessagesWithUsersListings,
+  getAllMessagesForListingIDBySpecificUsers
 } = require('../lib/messages-queries')
 
 const {
@@ -86,20 +87,42 @@ router.get("/listings/favourites", (req, res) => {
     })
 })
 
-//for the search part
-router.get("/search", (req, res) => {
-  getAllListingsByFilters(req.query)
-    .then((result) => {
-      res.send({ result })
-    }).catch((err) => {
-      console.error('search', err)
-      res.send({ error })
-    })
-})
+// //for the search part
+// router.get("/search/", (req, res) => {
+//   // console.log('req.query', req.query);
+//   let queryObj;
+//   for (let item in req.query) {
+//     // console.log('key', item);
+//     queryObj = item;
+//   }
+//   const query = JSON.parse(queryObj);
+//   // console.log('query', query);
+//   getAllListingsByFilters(query)
+//     .then((result) => {
+//       console.log('result', result);
+//       res.render('search-results');
+//     }).catch((err) => {
+//       console.error('search', err)
+//       res.send({ error })
+//     })
+// })
+//Marisa
+router.get("/messages/:id/:otherUser", (req, res) => {
+  req.session.user_id = 1;
+  const userID = req.session.user_id;
+  const listingID = req.params.id;
+  const otherUserID = req.params.otherUser;
+  getAllMessagesForListingIDBySpecificUsers(userID, otherUserID, listingID)
+    .then((results) => {
+      res.json({ userID, results });
+    }).catch((error) => {
+      console.error(error);
+      res.json({ error });
+    });
+});
 
 
-
-// show message list by seller and buyer
+// show message list by seller and buyer - NOT CURRENTLY USED
 router.get("/messages/:id", (req, res) => {
   const sellerId = req.session.user_id;
   const listingId = req.params.id
@@ -121,10 +144,11 @@ router.get("/messages/:id", (req, res) => {
 
 //get all messages with users listings
 router.get("/messages", (req, res) => {
-  const userId = req.session.user_id;
-  getAllMessagesWithUsersListings(userId)
+  req.session.user_id = 1;
+  const userID = req.session.user_id;
+  getAllMessagesWithUsersListings(userID)
     .then((results) => {
-      res.json({ results })
+      res.json({ userID, results })
     }).catch((error) => {
       console.error(error)
       res.json({ error })
@@ -197,7 +221,7 @@ router.post("/listings/manage", (req, res) => {
 
 
 //add message
-router.post("/message", (req, res) => {
+router.post("/messages", (req, res) => {
   const obj = req.body;
   addMessage(obj)
     .then((result) => {
@@ -208,6 +232,4 @@ router.post("/message", (req, res) => {
     })
 })
 
-
 module.exports = router;
-
