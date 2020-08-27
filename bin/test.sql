@@ -19,11 +19,8 @@
 -- SELECT *
 -- FROM messages;
 
--- SELECT *
--- FROM listings
--- WHERE id = 49;
-SELECT *, users.username as seller_username
-FROM messages
-  JOIN users ON seller_id = users.id
-WHERE messages.listing_id = 1 AND messages.buyer_id = 2
-ORDER by time_sent;
+SELECT *, listings.id as listing_id
+FROM listings
+  JOIN images ON listing_id = listings.id
+WHERE listings.id = 1;
+

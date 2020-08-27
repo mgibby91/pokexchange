@@ -1,14 +1,14 @@
 $(() => {
 
   // dymanic adding of newly listed
-  const addNewlyListed = function(mostRecentArray) {
+  const addFavourited = function(favouritesArray) {
 
-    for (let obj of mostRecentArray) {
+    for (let obj of favouritesArray) {
 
       let date = new Date(obj.time_posted).toString();
       date = date.slice(0, 10) + ', ' + date.slice(11, 15);
 
-      const htmlListing = `
+      const htmlFaves = `
       <article class="listing">
         <div class="img-date">
           <img src="${obj.img_url[0]}" />
@@ -27,31 +27,20 @@ $(() => {
       </article>
       `
 
-      const $newlyListedContainer = $('#recent');
-
-      $newlyListedContainer.append(htmlListing);
+      $('.favourites-listing-container').append(htmlFaves);
 
     }
 
   }
 
-  $.ajax('/api', { method: 'GET' })
+  $.ajax('/api/favourites/listings', { method: 'GET' })
     .then(res => {
-
-      addNewlyListed(res.mostRecent);
-
+      addFavourited(res.result);
+      // console.log(res.result);
     })
     .catch(err => {
       console.log(err);
-    })
-
-  $.ajax('/api/listings/30', { method: 'GET' })
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => {
-      console.log(err);
-    })
+    });
 
 
 
