@@ -20,6 +20,15 @@ const {
   getAllListingsByFilters,
 } = require('./lib/listing-queries'); // need to change back to listing-queries
 
+const {
+  getAllMessagesByListingID,
+  getAllMessagesByUserID,
+  getAllMessagesForUserByListingID,
+  getMessagesAndSellerUsernameWithListingIDAndBuyerID,
+  getMessagesAndBuyerUsernameWithListingIDAndSellerID,
+  getAllMessagesWithUsersListings,
+  getAllMessagesForListingIDBySpecificUsers
+} = require('./lib/messages-queries');
 // PG database client/connection setup
 
 // const client = require('./lib/db.js');
@@ -138,6 +147,30 @@ app.get('/search', (req, res) => {
       res.render('filter-results', templateVars);
     }).catch((err) => {
       console.error('search', err)
+    })
+});
+
+app.get('/messages', (req, res) => {
+  req.session.user_id = 1;
+  const userID = req.session.user_id;
+  getAllMessagesWithUsersListings(userID)
+    .then((results) => {
+      const templateVars = {
+        messages: results.map((r) => {
+          let otherUsername = "";
+          if (userID === r.buyerid) {
+            otherUsername = r.seller;
+          } else if (userID === r.sellerid) {
+            otherUsername = r.buyer;
+          }
+          return { ...r, otherUsername }
+        })
+      };
+      console.log(results);
+      // const templateVars = {
+      //   messages: []
+      // };
+      res.render('messages.ejs', templateVars);
     })
 });
 

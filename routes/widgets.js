@@ -27,7 +27,7 @@ const {
   getMessagesAndBuyerUsernameWithListingIDAndSellerID,
   getAllMessagesWithUsersListings,
   getAllMessagesForListingIDBySpecificUsers
-} = require('../lib/messages-queries')
+} = require('../lib/messages-queries');
 
 const {
   addListingWithImgs,
@@ -142,18 +142,18 @@ router.get("/messages/:id", (req, res) => {
     })
 })
 
-//get all messages with users listings
-router.get("/messages", (req, res) => {
-  req.session.user_id = 1;
-  const userID = req.session.user_id;
-  getAllMessagesWithUsersListings(userID)
-    .then((results) => {
-      res.json({ userID, results })
-    }).catch((error) => {
-      console.error(error)
-      res.json({ error })
-    })
-})
+// get all messages with users listings
+// router.get("/messages", (req, res) => {
+//   req.session.user_id = 1;
+//   const userID = req.session.user_id;
+//   getAllMessagesWithUsersListings(userID)
+//     .then((results) => {
+//       res.json({ userID, results })
+//     }).catch((error) => {
+//       console.error(error)
+//       res.json({ error })
+//     })
+// })
 
 //show all products by time, favourit and user's name
 router.get('/', (req, res) => {
