@@ -18,6 +18,7 @@ const {
   getAllListingsByCity,
   getMostFavouritedListings,
   getAllListingsByFilters,
+  getListingByListingID
 } = require('./lib/listing-queries'); // need to change back to listing-queries
 
 const {
@@ -29,6 +30,10 @@ const {
   getAllMessagesWithUsersListings,
   getAllMessagesForListingIDBySpecificUsers
 } = require('./lib/messages-queries');
+
+const {
+  actuallyDeleteListingByID
+} = require('./lib/listings-mod');
 // PG database client/connection setup
 
 // const client = require('./lib/db.js');
@@ -84,7 +89,48 @@ app.get("/", (req, res) => {
 // ROUTES FOR LINKS IN NAV
 // *****************************************************************
 app.get('/my_listings', (req, res) => {
-  res.render('manage-listings.ejs');
+
+  const userID = req.session.user_id;
+
+  getAllListingsByUserID(userID)
+    .then(result => {
+      console.log(result);
+      const templateVars = {
+        data: result
+      }
+      res.render('manage-listings.ejs', templateVars);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
+});
+
+app.post('/my_listings/delete/:id', (req, res) => {
+
+  const listingID = req.params.id;
+
+  actuallyDeleteListingByID(listingID)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
+
+});
+
+app.get('/my_listings/view_listing/:id', (req, res) => {
+
+  const listingID = req.params.id;
+
+  getAllMessagesByListingID(listingID)
+    .then(result => {
+      res.send(result);
+    })
+    .catch(err => console.log(err));
+
 });
 
 app.get('/listings/new', (req, res) => {

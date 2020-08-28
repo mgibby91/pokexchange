@@ -387,6 +387,19 @@ select {
   text-decoration: none;
 }
 
+.edit-delete-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.edit-listing-btn:hover, .delete-listing-btn:hover {
+  cursor: pointer;
+}
+
+.my-listing-container {
+  display: flex;
+}
 
 
 /*-----------Utilities-------------*/
