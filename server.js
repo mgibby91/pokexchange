@@ -197,7 +197,9 @@ app.get('/search', (req, res) => {
 });
 
 app.get('/messages', (req, res) => {
-  req.session.user_id = 1;
+  if (!req.session.user_id) {
+    req.session.user_id = 1;
+  }
   const userID = req.session.user_id;
   getAllMessagesWithUsersListings(userID)
     .then((results) => {

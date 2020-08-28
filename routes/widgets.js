@@ -111,7 +111,9 @@ router.get("/listings/favourites", (req, res) => {
 
 //Marisa
 router.get("/messages/:id/:otherUser", (req, res) => {
-  req.session.user_id = 1;
+  if (!req.session.user_id) {
+    req.session.user_id = 1;
+  }
   const userID = req.session.user_id;
   const listingID = req.params.id;
   const otherUserID = req.params.otherUser;
