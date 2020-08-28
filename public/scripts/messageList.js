@@ -40,7 +40,6 @@ const messageExchange = function (res, otherUsername, title) {
     } else {
       messageClass = "response-message";
     }
-    console.log(message.text_body);
     $resultHTML += `<article class=${messageClass}>
       ${message.text_body}
         <br>
@@ -60,8 +59,6 @@ const messageExchange = function (res, otherUsername, title) {
 
   $('#message-button').on('click', (e) => {
     e.preventDefault();
-    console.log();
-    console.log(messages[0].buyer_id);
     const messageText = $("textarea[name='message']").val();
     const dateString = new Date().toISOString();
 
