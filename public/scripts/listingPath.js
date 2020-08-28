@@ -1,10 +1,6 @@
 
 $(() => {
   const addListing = function (listingArray) {
-
-    console.log('data: ', listingArray);
-
-
     let date = new Date(listingArray[0].time_posted).toString();
     date = date.slice(0, 10) + ', ' + date.slice(11, 15);
 
@@ -39,12 +35,10 @@ $(() => {
     //marisa starts
     $('#listing-message-button').on('click', (e) => {
       e.preventDefault();
-      console.log('in the click: ', listingArray);
       const messageText = $("textarea#item-message").val();
-      console.log(messageText);
       const dateString = new Date().toISOString();
       const listing = listingArray[0];
-      console.log('listing: ', listing);
+
       const result = {
         "buyer_id": listing.buyerID,
         "seller_id": listing.user_id,
@@ -54,8 +48,6 @@ $(() => {
         "written_by": listing.buyerID
       };
 
-      console.log(result);
-
       $.ajax({
         type: "POST",
         url: "/api/messages",
@@ -63,7 +55,6 @@ $(() => {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
-          console.log('did it: ', data);
           $('#item-message').val('');
           alert('Message sent!');
 

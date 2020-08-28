@@ -50,9 +50,6 @@ $(() => {
             <label for="price">Price:
               <input type="text" name="price" value="$${(listingObj.price / 100).toFixed(2)}" style='width: 300px;'>
             </label>
-            <label for="description">Description
-              <textarea type="text" name="description" style='width: 300px; height: 100px;'>${listingObj.description}</textarea>
-            </label>
             <label for="category">Category:
               <select name="category">
                 <option>Accessories</option>
@@ -80,6 +77,9 @@ $(() => {
                 <option>Good</option>
                 <option>Well-Loved</option>
               </select></label>
+              <label for="description">Description
+              <textarea type="text" name="description" style='width: 300px; height: 100px;'>${listingObj.description}</textarea>
+            </label>
             <button type='submit' id='edit-form-btn' style='margin-top: 10px;'>Edit</button>
             <label for="listing_id" style='display: none;'>
               <input type="text" name="listing_id" value="${listingID}" style='width: 300px;'>

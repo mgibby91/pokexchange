@@ -365,17 +365,21 @@ select {
   width: 90%;
   margin-left: 153px;
   margin-right: auto;
+  align-items: stretch;
 }
 
 #messages-list{
-  border: 4px solid blueviolet;
-  height: 650px;
+  border: 4px solid black;
+  min-height: 650px;
   width: 50%;
   margin-right: 0px;
+  flex: 1;
+  position: relative;
+  background-color: #2a75bb;
 }
 
 #message-chain {
-  border: 4px solid yellowgreen;
+  border: 4px solid black;
   height: auto;
   min-height:650px;
   width: 50%;
@@ -383,29 +387,108 @@ select {
   display: flex;
   flex-direction: column;
   background-color: beige;
+  flex: 1;
+  position: relative;
+  padding: 5px;
 }
 
 .user-message, .response-message{
   height: auto;
-  padding: 5px;
-  width: 50%;
+  padding: 10px;
+  width: 70%;
   border-radius: 10px;
   margin: 3px 15px 3px;
+  display: flex;
+  flex-direction: column;
 }
 
 .user-message {
-  margin-left: 45%;
+  margin-left: 27%;
   background-color: #2a75bb;
-  margin-right: 100px;
+  margin-right: 50%;
 }
 
 .response-message {
   background-color: #3c5aa6;
 }
 
+#compose-message {
+  display: flex;
+}
 #compose-message textarea {
-  width: 80%;
+  width: 88%;
   vertical-align: middle;
+}
+
+#compose-message button {
+  height: auto;
+  display: inline-block;
+  width: 15%;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #2a75bb;
+  text-shadow: 2px 2px #3c5aa6;
+  border-radius: 3px;
+}
+
+a.time {
+  margin: 3px;
+  margin-left: auto;
+  font-size: 12px;
+}
+
+.response-message a.time {
+  margin-right: auto;
+  margin-left: 2px;
+}
+
+#chain-header{
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.filler {
+  font-size: x-large;
+  font-weight: bold;
+}
+.filler i {
+  margin-right: 5px;
+}
+
+#messages-list article{
+padding: 5px;
+font-weight: bold;
+display: block;
+}
+
+#messages-list article:nth-child(even){
+  background-color: #2a75bb;
+}
+
+#messages-list article:nth-child(odd){
+  background-color: #3c5aa6;
+}
+
+.delete-listing-btn, .edit-listing-btn, .create, #edit-form-btn {
+  margin-bottom: 10px;
+  padding: 7px;
+  font-weight: bold;
+  background-color: #2a75bb;
+  color: white;
+  border-radius: 5px;
+  text-shadow: 2px 2px #3c5aa6;
+}
+
+.create #edit-form-btn {
+  padding: 5x;
+  margin-top: 5px;
+  border-radius: 3px;
+}
+
+#edit-form-btn {
+  padding: 5px;
+  font-size: 18px;
 }
 /*-----------Matt's stuff-------------*/
 
@@ -416,7 +499,8 @@ select {
 .edit-delete-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  padding-top: 12px;
 }
 
 .edit-listing-btn:hover, .delete-listing-btn:hover {

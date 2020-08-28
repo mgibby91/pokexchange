@@ -25,9 +25,9 @@
 
     <article class="message-summary" data-id="<%=chain.id%>" data-other="<%=chain.otherUsername%>" data-uid="<%=chain.otherUserID%>" data-title="<%=chain.title%>">
         <a class="chain-title"><%=chain.title%></a>
-        <img src="/resources/pokeball-icon.png" />
+        <img class="chain-icon" src="/resources/pokeball-icon.png" />
         <a class="other-username"><%=chain.otherUsername%></a>
-        <img src="/resources/pokeball-icon.png" />
+        <img class="chain-icon" src="/resources/pokeball-icon.png" />
         <% if(chain.total_messages_exchanged > 1){ %>
           <a class="message-count"><%=chain.total_messages_exchanged%> messages</a>
           <% } else { %>
@@ -37,7 +37,7 @@
       <% } %>
     </section>
     <section id="message-chain">
-      Select a conversation
+      <a class="filler"><i class="fa fa-arrow-left"></i>Select a conversation</a>
     </section>
   </main>
 </body>

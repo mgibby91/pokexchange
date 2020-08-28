@@ -32,7 +32,9 @@ const messageExchange = function (res, otherUsername, title) {
                      </a>`;
 
   for (const message of messages) {
-    const timeStamp = generateTimeStamp(message.time_sent);
+    const milliseconds = Date.parse(message.time_sent);
+    const timeStamp = generateTimeStamp(milliseconds);
+
     if (message.written_by === userID) {
       messageClass = "user-message";
     } else {
