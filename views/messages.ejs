@@ -28,7 +28,11 @@
         <img src="/resources/pokeball-icon.png" />
         <a class="other-username"><%=chain.otherUsername%></a>
         <img src="/resources/pokeball-icon.png" />
-        <a class="message-count"><%=chain.total_messages_exchanged%> messages</a>
+        <% if(chain.total_messages_exchanged > 1){ %>
+          <a class="message-count"><%=chain.total_messages_exchanged%> messages</a>
+          <% } else { %>
+            <a class="message-count"><%=chain.total_messages_exchanged%> message</a>
+            <% } %>
         </article>
       <% } %>
     </section>

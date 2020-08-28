@@ -108,6 +108,7 @@ router.get("/listings/favourites", (req, res) => {
 //       res.send({ error })
 //     })
 // })
+
 //Marisa
 router.get("/messages/:id/:otherUser", (req, res) => {
   req.session.user_id = 1;

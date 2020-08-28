@@ -1,11 +1,6 @@
 $(() => {
   $('#messages-list article').each(function (i, message) {
     $(message).on('click', () => {
-      console.log($(this).data('id'));
-      console.log($(this).data('other'));
-      console.log($(this).data('uid'));
-      console.log($(this).data('title'));
-
       const listingID = $(this).data('id');
       const otherUsername = $(this).data('other');
       const otherUserID = $(this).data('uid');
@@ -18,26 +13,23 @@ $(() => {
         .catch(err => {
           console.log(err);
         });
-
     });
   });
-
 });
-
 
 const messageExchange = function (res, otherUsername, title) {
   const messages = res.results;
   const userID = res.userID;
-  console.log(messages[0]);
-  console.log(otherUsername);
   const $messages = $('#message-chain');
+
   $messages.empty();
+
   let messageClass = "";
   let $resultHTML = `<a id="chain-header">
-                            ${title}
-                            <img src="/resources/pokeball-icon.png" class="message-title">
-                            ${otherUsername}
-                          </a>`;
+                      ${title}
+                      <img src="/resources/pokeball-icon.png" class="message-title">
+                      ${otherUsername}
+                     </a>`;
 
   for (const message of messages) {
     const timeStamp = generateTimeStamp(message.time_sent);
@@ -48,14 +40,14 @@ const messageExchange = function (res, otherUsername, title) {
     }
     console.log(message.text_body);
     $resultHTML += `<article class=${messageClass}>
-        Sent: ${timeStamp}
+      ${message.text_body}
         <br>
-        Message: ${message.text_body}
+        <a class="time">${timeStamp}</a>
         </article>`;
   }
 
-  let $sendNewMessage = `<form id="send-message">
-      <input type="hidden" name="buyer" value="${messages[0].buyer_id}">
+  let $sendNewMessage = `
+    <form id="send-message">
       <section id="compose-message">
         <textarea name="message"></textarea>
         <button type="button" id="message-button">Send</button>
@@ -80,8 +72,6 @@ const messageExchange = function (res, otherUsername, title) {
       "written_by": userID
     };
 
-    console.log(result);
-
     $.ajax({
       type: "POST",
       url: "/api/messages",
@@ -89,7 +79,8 @@ const messageExchange = function (res, otherUsername, title) {
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: function(data){
-        console.log(data);
+        res.results.push(data.result);
+        messageExchange(res, otherUsername, title);
       },
       failure: function(err){
         console.log(err);
