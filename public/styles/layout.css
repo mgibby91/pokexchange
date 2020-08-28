@@ -45,6 +45,10 @@ a#line {
   font-size: 35px;
 }
 
+#listing-header, #selling-header, #selling-header-edit {
+  margin-left: -20%;
+}
+
 a#tagline {
   color: #ffffff;
   z-index: 1;

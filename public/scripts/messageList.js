@@ -33,6 +33,7 @@ const messageExchange = function (res, otherUsername, title) {
 
   for (const message of messages) {
     const milliseconds = Date.parse(message.time_sent);
+
     const timeStamp = generateTimeStamp(milliseconds);
 
     if (message.written_by === userID) {
