@@ -160,7 +160,9 @@ router.get("/messages/:id/:otherUser", (req, res) => {
 
 //show all products by time, favourit and user's name
 router.get('/', (req, res) => {
-  req.session.user_id = 1;
+  if (!req.session.user_id) {
+    req.session.user_id = 1;
+  }
   const userId = req.session.user_id;
   // console.log('session user id', userId);
   Promise.all([

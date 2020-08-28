@@ -231,6 +231,19 @@ app.get('/messages/:id/:otherUser', (req, res) => {
   res.render('messages.ejs');
 });
 
+app.get('/logout/', (req, res) => {
+  res.render('login-logout');
+})
+
+app.post('/login-logout/', (req, res) => {
+  const userID = Number(req.body.login_logout[0]);
+
+  req.session.user_id = userID;
+
+  res.render('index');
+
+})
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
