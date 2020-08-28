@@ -23,7 +23,7 @@
       <%for(let chain of messages) { %>
 
 
-    <article class="message-summary" data-id="<%=chain.id%>">
+    <article class="message-summary" data-id="<%=chain.id%>" data-other="<%=chain.otherUsername%>" data-uid="<%=chain.otherUserID%>" data-title="<%=chain.title%>">
         <a class="chain-title"><%=chain.title%></a>
         <img src="/resources/pokeball-icon.png" />
         <a class="other-username"><%=chain.otherUsername%></a>
@@ -33,18 +33,7 @@
       <% } %>
     </section>
     <section id="message-chain">
-      <article class="user-message">
-        hello
-      </article>
-      <article class="response-message">
-        hello to you too
-      </article>
-      <form id="send-message">
-        <section id="compose-message">
-          <textarea name="message"></textarea>
-          <button>Send</button>
-        </section>
-      </form>
+      Select a conversation
     </section>
   </main>
 </body>

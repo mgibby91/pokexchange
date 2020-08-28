@@ -204,19 +204,26 @@ app.get('/messages', (req, res) => {
       const templateVars = {
         messages: results.map((r) => {
           let otherUsername = "";
+          let otherUserID = 0;
           if (userID === r.buyerid) {
             otherUsername = r.seller;
+            otherUserID = r.sellerid;
           } else if (userID === r.sellerid) {
             otherUsername = r.buyer;
+            otherUserID = r.buyerid;
           }
-          return { ...r, otherUsername }
-        })
+          return { ...r, otherUsername, otherUserID };
+        }),
+        userID
       };
-      console.log(results);
+      console.log(templateVars);
       // const templateVars = {
       //   messages: []
       // };
       res.render('messages.ejs', templateVars);
+    })
+    .catch((err) => {
+      console.error('search', err)
     })
 });
 
