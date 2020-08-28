@@ -194,14 +194,15 @@ router.post("/listings/manage/:id/delete", (req, res) => {
 
 //edite card by listId
 router.post("/listings/manage/:id", (req, res) => {
-  const updateInfo = req.body;
-  const listingId = req.params.id;
-  editListingByID(listingId, updateInfo)
-    .then((results) => {
-      res.send({ results })
-    }).catch((err) => {
-      res.json({ err });
-    })
+  console.log(req.body);
+  // const updateInfo = req.body;
+  // const listingId = req.params.id;
+  // editListingByID(listingId, updateInfo)
+  //   .then((results) => {
+  //     res.send({ results })
+  //   }).catch((err) => {
+  //     res.json({ err });
+  //   })
 })
 
 

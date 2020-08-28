@@ -123,11 +123,11 @@ app.post('/my_listings/delete/:id', (req, res) => {
 
 app.get('/my_listings/view_listing/:id', (req, res) => {
 
-  const listingID = req.params.id;
+  const listingID = Number(req.params.id);
 
-  getAllMessagesByListingID(listingID)
+  getListingByListingID(listingID)
     .then(result => {
-      res.send(result);
+      res.send(result)
     })
     .catch(err => console.log(err));
 
