@@ -21,18 +21,18 @@
   <main class="container" id="create-listing">
     <div id="selling-header">What're you selling?</div>
     <section id="listing-info">
-      <form id="new-listing" method="POST" action="/api/listings/manage">
+      <form id="new-listing" method="POST" action="/api/listings/manage" style='height: 320px;'>
         <label for="title">Title:
           <input type="text" name="title">
-        </label>
-        <label for="description">Description
-          <input type="text" name="description">
         </label>
         <label for="imgUrl">Image URL:
           <input type="text" name="imgUrl" value="http://">
         </label>
         <label for="price">Price:
           <input type="text" name="price" value="$0.00">
+        </label>
+        <label for="description">Description
+          <textarea type="text" name="description" stlye='height: 200px; width: 500px;'></textarea>
         </label>
         <label for="category">Category:
           <select name="category">
@@ -54,7 +54,7 @@
             <option>Victoria</option>
           </select></label>
         <label for="condition">Condition:
-          <select name='condition'>
+          <select name=' condition' style>
             <option>BNIB</option>
             <option>CIB</option>
             <option>Like New</option>
