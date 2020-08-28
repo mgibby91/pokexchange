@@ -223,6 +223,7 @@ router.post("/listings/manage", (req, res) => {
 //add message
 router.post("/messages", (req, res) => {
   const obj = req.body;
+  console.log('obj: ', obj);
   addMessage(obj)
     .then((result) => {
       res.send({result})
