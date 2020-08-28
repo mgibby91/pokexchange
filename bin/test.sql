@@ -16,8 +16,11 @@
 -- JOIN images ON listing_id = listings.id
 -- WHERE city = 'Calgary';
 
+-- SELECT *
+-- FROM listings;
+
 SELECT *
-FROM listings;
+FROM favourites;
 
 -- SELECT listings.*, listings.id as listing_id, categories.name as category
 -- FROM listings

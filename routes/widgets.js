@@ -32,7 +32,9 @@ const {
 const {
   addListingWithImgs,
   deleteListingByID,
-  editListingByID } = require("../lib/listings-mod")
+  editListingByID,
+  actuallyDeleteListingByID,
+  addFavouriteToListing } = require("../lib/listings-mod")
 
 const { addMessage } = require("../lib/messages-mod")
 
@@ -194,15 +196,60 @@ router.post("/listings/manage/:id/delete", (req, res) => {
 
 //edite card by listId
 router.post("/listings/manage/:id", (req, res) => {
-  console.log(req.body);
-  // const updateInfo = req.body;
-  // const listingId = req.params.id;
-  // editListingByID(listingId, updateInfo)
-  //   .then((results) => {
-  //     res.send({ results })
-  //   }).catch((err) => {
-  //     res.json({ err });
-  //   })
+  // console.log(req.body);
+  const listingID = Number(req.body.listing_id);
+  actuallyDeleteListingByID(listingID)
+    .then(result => {
+      // console.log(res);
+
+      const categoryIDs = {
+        'Cards': 1,
+        'Video-games': 2,
+        'Clothing': 3,
+        'Toys': 4,
+        'Plushies': 5,
+        'Movies': 6,
+        'Accessories': 7,
+        'Other': 8,
+      }
+
+      req.body.category_id = categoryIDs[req.body.category];
+      delete req.body.category;
+
+      const imgArray = [req.body.imgUrl];
+      delete req.body.imgUrl;
+      delete req.body.listing_id;
+
+      if (req.body.price[0] === '$') {
+        req.body.price = Number(req.body.price.slice(1)) * 100;
+      } else {
+        req.body.price = Number(req.body.price) * 100;
+      }
+
+      req.body.time_posted = 'now()';
+      req.body.user_id = req.session.user_id;
+
+      // console.log(req.body);
+      // console.log(imgArray);
+
+      addListingWithImgs(req.body, imgArray)
+        .then((results) => {
+          console.log('results', results);
+          addFavouriteToListing(results.id, req.session.user_id)
+            .then(result => {
+              // console.log(result);
+              res.redirect('/my_listings');
+            })
+            .catch(err => console.log(err));
+        }).catch((err) => {
+          console.error(err);
+        })
+
+
+    })
+    .catch(err => {
+      console.log(err);
+    });
 })
 
 

@@ -80,7 +80,10 @@ $(() => {
                 <option>Good</option>
                 <option>Well-Loved</option>
               </select></label>
-            <button type='submit' style='margin-top: 10px;'>Edit</button>
+            <button type='submit' id='edit-form-btn' style='margin-top: 10px;'>Edit</button>
+            <label for="listing_id" style='display: none;'>
+              <input type="text" name="listing_id" value="${listingID}" style='width: 300px;'>
+            </label>
           </form>
           </div>`;
 
