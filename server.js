@@ -18,7 +18,8 @@ const {
   getAllListingsByCity,
   getMostFavouritedListings,
   getAllListingsByFilters,
-  getListingByListingID
+  getListingByListingID,
+  getAllFavouritesByUserID
 } = require('./lib/listing-queries'); // need to change back to listing-queries
 
 const {
@@ -32,7 +33,8 @@ const {
 } = require('./lib/messages-queries');
 
 const {
-  actuallyDeleteListingByID
+  actuallyDeleteListingByID,
+  addFavouriteToListing
 } = require('./lib/listings-mod');
 // PG database client/connection setup
 
@@ -243,6 +245,32 @@ app.post('/login-logout/', (req, res) => {
   req.session.user_id = userID;
 
   res.render('index');
+
+});
+
+
+app.get('/get_faves/', (req, res) => {
+  const userID = req.session.user_id;
+
+  getAllFavouritesByUserID(userID)
+    .then(result => {
+      // console.log('faves by id', res);
+      res.send(result);
+    })
+    .catch(err => console.log(err))
+
+})
+
+app.post('/like_listing', (req, res) => {
+  const userID = req.session.user_id;
+  const listingID = req.body.listingID;
+  console.log(listingID);
+
+
+  addFavouriteToListing(listingID, userID)
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+
 
 })
 

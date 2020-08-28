@@ -19,8 +19,9 @@
 -- SELECT *
 -- FROM listings;
 
-SELECT *
-FROM favourites;
+SELECT listing_id
+FROM favourites
+WHERE user_id = 1;
 
 -- SELECT listings.*, listings.id as listing_id, categories.name as category
 -- FROM listings

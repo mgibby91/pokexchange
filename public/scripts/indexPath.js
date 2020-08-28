@@ -3,35 +3,61 @@ $(() => {
   // dymanic adding of newly listed
   const addNewlyListed = function(mostRecentArray) {
 
-    for (let obj of mostRecentArray) {
+    $.ajax('/get_faves', { method: 'GET' })
+      .then(res => {
+        // console.log('faves', res);
 
-      let date = new Date(obj.time_posted).toString();
-      date = date.slice(0, 10) + ', ' + date.slice(11, 15);
+        let faves = [];
+        for (let fave of res) {
+          faves.push(fave.listing_id);
+        }
 
-      const htmlListing = `
-      <article class="listing">
-        <div class="img-date">
-          <img src="${obj.img_url[0]}" />
-          <a>Posted ${date}</a>
-        </div>
-        <div class="summary">
-          <a href="/listings/${obj.listing_id}">
-            <p>${obj.title}</p>
-          </a>
-          <p>$${(obj.price / 100).toFixed(2)}</p>
-          <p>${obj.city}</p>
-          <p>
-            <i class="fa fa-heart" id="love"></i>
-          </p>
-        </div>
-      </article>
-      `
+        for (let obj of mostRecentArray) {
 
-      const $newlyListedContainer = $('#recent');
+          let faveClass;
 
-      $newlyListedContainer.append(htmlListing);
+          if (faves.includes(Number(obj.listing_id))) {
+            faveClass = 'fa fa-heart loved';
+          } else {
+            faveClass = 'fa fa-heart';
+          }
 
-    }
+          let date = new Date(obj.time_posted).toString();
+          date = date.slice(0, 10) + ', ' + date.slice(11, 15);
+
+          const htmlListing = `
+          <article class="listing">
+            <div class="img-date">
+              <img src="${obj.img_url[0]}" />
+              <a>Posted ${date}</a>
+            </div>
+            <div class="summary">
+              <a href="/listings/${obj.listing_id}">
+                <p>${obj.title}</p>
+              </a>
+              <p>$${(obj.price / 100).toFixed(2)}</p>
+              <p>${obj.city}</p>
+              <p>
+                <i class="${faveClass}" id="love"></i>
+              </p>
+            </div>
+          </article>
+          `
+
+          const $newlyListedContainer = $('#recent');
+
+          $newlyListedContainer.append(htmlListing);
+
+        }
+
+
+
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+
 
   }
 
@@ -62,13 +88,34 @@ $(() => {
     });
 
 
+  const faveListing = function(e) {
+
+    if (e.target.className === 'fa fa-heart') {
+      e.target.classList.add('loved');
+      console.log(e.target);
+
+      const listingID = Number(e.target.parentElement.parentElement.children[0].href.split('/')[4]);
+
+      console.log('listingID', listingID);
+
+      $.post({
+        url: '/like_listing',
+        data: JSON.stringify({ listingID }),
+        contentType: 'application/json',
+      })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+
+  }
+
+  $('#recent').click(faveListing);
 
 
 
-  // $.post({
-  //   url: '/ships',
-  //   data: JSON.stringify(shipsData),
-  //   contentType: 'application/json',
-  // })
 
 });

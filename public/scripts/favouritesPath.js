@@ -3,12 +3,30 @@ $(() => {
   // dymanic adding of newly listed
   const addFavourited = function(favouritesArray) {
 
-    for (let obj of favouritesArray) {
+    $.ajax('/get_faves', { method: 'GET' })
+      .then(res => {
+        console.log('faves', res);
 
-      let date = new Date(obj.time_posted).toString();
-      date = date.slice(0, 10) + ', ' + date.slice(11, 15);
+        let faves = [];
+        for (let fave of res) {
+          faves.push(fave.listing_id);
+        }
+        console.log(faves);
 
-      const htmlFaves = `
+        for (let obj of favouritesArray) {
+
+          let faveClass;
+
+          if (faves.includes(Number(obj.listing_id))) {
+            faveClass = 'fa fa-heart loved';
+          } else {
+            faveClass = 'fa fa-heart';
+          }
+
+          let date = new Date(obj.time_posted).toString();
+          date = date.slice(0, 10) + ', ' + date.slice(11, 15);
+
+          const htmlFaves = `
       <article class="listing">
         <div class="img-date">
           <img src="${obj.img_url[0]}" />
@@ -21,15 +39,20 @@ $(() => {
           <p>$${(obj.price / 100).toFixed(2)}</p>
           <p>${obj.city}</p>
           <p>
-            <i class="fa fa-heart" id="love"></i>
+            <i class="${faveClass}" id="love"></i>
           </p>
         </div>
       </article>
       `
 
-      $('.favourites-listing-container').append(htmlFaves);
+          $('.favourites-listing-container').append(htmlFaves);
 
-    }
+        }
+
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
   }
 
