@@ -5,7 +5,7 @@ values
 insert into messages
   (buyer_id, seller_id, text_body, time_sent, written_by, active, listing_id)
 values
-  (2, 1, 'Yes you may, friendo! But the price has increased to $10,000 as it is currently evolved to Sylveon 🥺', '2020-08-16T07:39:19Z', 1, true, 1);
+  (2, 1, 'Yes you may, friendo! But the price has increased to $10,000 as it is currently evolved to Sylveon 🙈🙊 ', '2020-08-16T07:39:19Z', 1, true, 1);
 insert into messages
   (buyer_id, seller_id, text_body, time_sent, written_by, active, listing_id)
 values
