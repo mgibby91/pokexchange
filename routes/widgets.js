@@ -123,24 +123,24 @@ router.get("/messages/:id/:otherUser", (req, res) => {
 
 
 // show message list by seller and buyer - NOT CURRENTLY USED
-router.get("/messages/:id", (req, res) => {
-  const sellerId = req.session.user_id;
-  const listingId = req.params.id
-  let obj = {}
-  getMessagesAndBuyerUsernameWithListingIDAndSellerID(listingId, sellerId)
-    .then((results1) => {
-      obj["bySeller"] = results1;
-      const buyerId = results1[0].buyer_id;
-      getMessagesAndSellerUsernameWithListingIDAndBuyerID(listingId, buyerId)
-        .then((results2) => {
-          obj["byBuyer"] = results2
-          res.send(obj)
-        }).catch((error) => {
-          console.error(error);
-          res.json({ error });
-        })
-    })
-})
+// router.get("/messages/:id", (req, res) => {
+//   const sellerId = req.session.user_id;
+//   const listingId = req.params.id
+//   let obj = {}
+//   getMessagesAndBuyerUsernameWithListingIDAndSellerID(listingId, sellerId)
+//     .then((results1) => {
+//       obj["bySeller"] = results1;
+//       const buyerId = results1[0].buyer_id;
+//       getMessagesAndSellerUsernameWithListingIDAndBuyerID(listingId, buyerId)
+//         .then((results2) => {
+//           obj["byBuyer"] = results2
+//           res.send(obj)
+//         }).catch((error) => {
+//           console.error(error);
+//           res.json({ error });
+//         })
+//     })
+// })
 
 // get all messages with users listings
 // router.get("/messages", (req, res) => {

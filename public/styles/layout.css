@@ -373,6 +373,13 @@ select {
   margin-left: 0px;
 }
 
+.user-message, .response-message {
+  height: auto;
+  border: 3px solid red;
+  margin: 3px;
+  padding: 3px;
+}
+
 /*-----------Matt's stuff-------------*/
 #nav-title {
   text-decoration: none;
