@@ -45,7 +45,7 @@ a#line {
   font-size: 35px;
 }
 
-#listing-header, #selling-header, #selling-header-edit {
+#listing-header {
   margin-left: -20%;
 }
 
