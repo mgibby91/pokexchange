@@ -279,8 +279,3 @@ app.post('/like_listing', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-
-app.use('/.netlify/functions/server', router);  // path must route to lambda
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '/views/index.ejs')));
-
-module.exports.handler = serverless(app);
