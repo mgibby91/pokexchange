@@ -26,5 +26,5 @@ function ejs2html({ path, outPath, data, options }) {
 
 ejs2html({
   path: `/views/index.ejs`,
-  outPath: `/public/index.html`
+  outPath: `/index.html`
 });
