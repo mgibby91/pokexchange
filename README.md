@@ -42,5 +42,3 @@ The following steps are only for _one_ of the group members to perform.
 - NPM 5.x or above
 - PG 6.x
 
-
-![Alt Text](https://github.com/mgibby91/pokechange/blob/master/captured%20(2).gif?raw=true)
