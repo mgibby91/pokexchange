@@ -1,5 +1,5 @@
 $(() => {
-  $('#messages-list article').each(function (i, message) {
+  $('#messages-list article').each(function(i, message) {
     $(message).on('click', () => {
       const listingID = $(this).data('id');
       const otherUsername = $(this).data('other');
@@ -17,7 +17,7 @@ $(() => {
   });
 });
 
-const messageExchange = function (res, otherUsername, title) {
+const messageExchange = function(res, otherUsername, title) {
   const messages = res.results;
   const userID = res.userID;
   const $messages = $('#message-chain');
@@ -77,11 +77,11 @@ const messageExchange = function (res, otherUsername, title) {
       data: JSON.stringify(result),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
-      success: function(data){
+      success: function(data) {
         res.results.push(data.result);
         messageExchange(res, otherUsername, title);
       },
-      failure: function(err){
+      failure: function(err) {
         console.log(err);
       }
     });
@@ -89,9 +89,12 @@ const messageExchange = function (res, otherUsername, title) {
   });
 };
 
-const generateTimeStamp = function (time) {
+const generateTimeStamp = function(time) {
   const date = new Date(time);
   const currentDate = new Date();
+
+  console.log('date', date)
+  console.log('current date', currentDate);
 
   let timeStamp = '';
 
@@ -111,10 +114,16 @@ const generateTimeStamp = function (time) {
       timeStamp += 's';
     }
   } else {
-    const hours = Math.floor(difference / 3600) % 24;
-    const minutes = Math.floor(difference / 60) % 60;
+    let hours = Math.floor(difference / 3600) % 24;
+    let minutes = Math.floor(difference / 60) % 60;
 
-    if (hours + minutes === 0) {
+    hours -= 5;
+    minutes -= 58;
+
+    console.log('hours', hours);
+    console.log('minutes', minutes);
+
+    if (hours + minutes === 1) {
       return 'Just now!';
     }
 
