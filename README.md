@@ -43,4 +43,4 @@ The following steps are only for _one_ of the group members to perform.
 - PG 6.x
 
 
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Alt Text](https://github.com/mgibby91/pokechange/blob/master/captured%20(2).gif?raw=true)
