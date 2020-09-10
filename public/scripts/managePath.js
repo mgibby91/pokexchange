@@ -89,7 +89,6 @@ $(() => {
 
           $('.my-listings-container').css('display', 'none');
 
-          // document.querySelector('.my-listings-container').parentElement.appendChild(editHTML);
           $('.container').append(editHTML);
 
         })

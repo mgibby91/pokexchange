@@ -1,9 +1,3 @@
-/*
- * All routes for Widgets are defined here
- * Since this file is loaded in server.js into api/widgets,
- *   these routes are mounted onto /widgets
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
 
 const express = require('express');
 const router = express.Router();
@@ -15,7 +9,7 @@ const {
   getAllListingsByCity,
   getMostFavouritedListings,
   getAllListingsByFilters,
-} = require('../lib/listing-queries'); // need to change back to listing-queries
+} = require('../lib/listing-queries');
 
 const { getUserByID, getUserByUsername } = require('../lib/users-queries')
 
@@ -127,53 +121,18 @@ router.get("/messages/:id/:otherUser", (req, res) => {
 });
 
 
-// show message list by seller and buyer - NOT CURRENTLY USED
-// router.get("/messages/:id", (req, res) => {
-//   const sellerId = req.session.user_id;
-//   const listingId = req.params.id
-//   let obj = {}
-//   getMessagesAndBuyerUsernameWithListingIDAndSellerID(listingId, sellerId)
-//     .then((results1) => {
-//       obj["bySeller"] = results1;
-//       const buyerId = results1[0].buyer_id;
-//       getMessagesAndSellerUsernameWithListingIDAndBuyerID(listingId, buyerId)
-//         .then((results2) => {
-//           obj["byBuyer"] = results2
-//           res.send(obj)
-//         }).catch((error) => {
-//           console.error(error);
-//           res.json({ error });
-//         })
-//     })
-// })
-
-// get all messages with users listings
-// router.get("/messages", (req, res) => {
-//   req.session.user_id = 1;
-//   const userID = req.session.user_id;
-//   getAllMessagesWithUsersListings(userID)
-//     .then((results) => {
-//       res.json({ userID, results })
-//     }).catch((error) => {
-//       console.error(error)
-//       res.json({ error })
-//     })
-// })
-
-//show all products by time, favourit and user's name
+//show all products by time, favourite and user's name
 router.get('/', (req, res) => {
   if (!req.session.user_id) {
     req.session.user_id = 1;
   }
   const userId = req.session.user_id;
-  // console.log('session user id', userId);
   Promise.all([
     getAllListingsByMostRecent(),
     getMostFavouritedListings(),
     getUserByID(userId),
   ]).then((result) => {
     const [result1, result2, result3] = result;
-    // console.log('home route ', result3[0].username);
     res.send({
       mostRecent: result1,
       MostFav: result2,
@@ -186,7 +145,7 @@ router.get('/', (req, res) => {
 })
 
 
-//delete card by listid
+//delete card by listingid
 router.post("/listings/manage/:id/delete", (req, res) => {
   const listingID = req.params.id;
   deleteListingByID(listingID)
@@ -199,13 +158,11 @@ router.post("/listings/manage/:id/delete", (req, res) => {
     })
 })
 
-//edite card by listId
+//edite card by listingId
 router.post("/listings/manage/:id", (req, res) => {
-  // console.log(req.body);
   const listingID = Number(req.body.listing_id);
   actuallyDeleteListingByID(listingID)
     .then(result => {
-      // console.log(res);
 
       const categoryIDs = {
         'Cards': 1,
@@ -234,15 +191,11 @@ router.post("/listings/manage/:id", (req, res) => {
       req.body.time_posted = 'now()';
       req.body.user_id = req.session.user_id;
 
-      // console.log(req.body);
-      // console.log(imgArray);
-
       addListingWithImgs(req.body, imgArray)
         .then((results) => {
           console.log('results', results);
           addFavouriteToListing(results.id, req.session.user_id)
             .then(result => {
-              // console.log(result);
               res.redirect('/my_listings');
             })
             .catch(err => console.log(err));

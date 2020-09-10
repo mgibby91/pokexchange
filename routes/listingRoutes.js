@@ -37,20 +37,4 @@ router.get("/favourites/listings", (req, res) => {
     })
 })
 
-
-// router.get('/cities/:id', (req, res) => {
-//   // const city = req.params.id;
-//   console.log('city req params', req.params.id)
-//   // getAllListingsByCity(city)
-//   //   .then(result => {
-//   //     console.log(result);
-//   //     res.send(result);
-//   //   })
-//   //   .catch(err => {
-//   //     console.log('error in listings routes', err);
-//   //   })
-// })
-
-
-
 module.exports = router;

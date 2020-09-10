@@ -1,7 +1,6 @@
 // load .env data into process.env
 require('dotenv').config();
 
-// Web server config
 const PORT = process.env.PORT || 8080;
 const ENV = process.env.ENV || "development";
 const express = require("express");
@@ -22,7 +21,7 @@ const {
   getAllListingsByFilters,
   getListingByListingID,
   getAllFavouritesByUserID
-} = require('./lib/listing-queries'); // need to change back to listing-queries
+} = require('./lib/listing-queries');
 
 const {
   getAllMessagesByListingID,
@@ -38,9 +37,7 @@ const {
   actuallyDeleteListingByID,
   addFavouriteToListing
 } = require('./lib/listings-mod');
-// PG database client/connection setup
 
-// const client = require('./lib/db.js');
 const cookieSession = require('cookie-session');
 app.use(cookieSession({
   name: 'session',
@@ -53,9 +50,6 @@ db.connect(() => {
   console.log('connected to the db');
 });
 
-// Load the logger first so all (static) HTTP requests are logged to STDOUT
-// 'dev' = Concise output colored by response status for development use.
-//         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 
 app.set("view engine", "ejs");
@@ -68,23 +62,16 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 app.use(bodyParser.json());
-// Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
+
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const listingRoutes = require("./routes/listingRoutes");
 
-// Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
 app.use("/api/", usersRoutes);
 app.use("/api/", widgetsRoutes);
 app.use("/api/", listingRoutes);
-// Note: mount other resources here, using the same pattern above
-
 
 // Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   res.render("index.ejs");
 });
@@ -142,7 +129,6 @@ app.get('/listings/new', (req, res) => {
 });
 
 app.get('/listings/:id', (req, res) => {
-  // console.log('req.params from server', req.params.id);
   res.render('listing.ejs');
 });
 
@@ -151,12 +137,10 @@ app.get('/favourites/listings', (req, res) => {
 });
 
 app.get('/cities/:id', (req, res) => {
-  // console.log('req.params from server', req.params.id);
   res.render('search-results');
 });
 
 app.get('/categories/:name', (req, res) => {
-  // console.log('req.params from server', req.params.name);
   res.render('search-results');
 });
 
@@ -193,7 +177,6 @@ app.get('/search', (req, res) => {
       const templateVars = {
         data: result
       };
-      // res.render('filter-results', templateVars);
       res.render('filter-results', templateVars);
     }).catch((err) => {
       console.error('search', err)
@@ -223,9 +206,6 @@ app.get('/messages', (req, res) => {
         userID
       };
       console.log(templateVars);
-      // const templateVars = {
-      //   messages: []
-      // };
       res.render('messages.ejs', templateVars);
     })
     .catch((err) => {
@@ -256,7 +236,6 @@ app.get('/get_faves/', (req, res) => {
 
   getAllFavouritesByUserID(userID)
     .then(result => {
-      // console.log('faves by id', res);
       res.send(result);
     })
     .catch(err => console.log(err))

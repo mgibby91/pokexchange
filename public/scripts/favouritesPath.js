@@ -59,20 +59,9 @@ $(() => {
   $.ajax('/api/favourites/listings', { method: 'GET' })
     .then(res => {
       addFavourited(res.result);
-      // console.log(res.result);
     })
     .catch(err => {
       console.log(err);
     });
-
-
-
-
-
-  // $.post({
-  //   url: '/ships',
-  //   data: JSON.stringify(shipsData),
-  //   contentType: 'application/json',
-  // })
 
 });

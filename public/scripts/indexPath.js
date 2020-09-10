@@ -5,7 +5,6 @@ $(() => {
 
     $.ajax('/get_faves', { method: 'GET' })
       .then(res => {
-        // console.log('faves', res);
 
         let faves = [];
         for (let fave of res) {

@@ -1,5 +1,3 @@
-
-
 $(() => {
 
   const addListingByCity = function(cityArray) {
