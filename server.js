@@ -9,6 +9,8 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
+const serverless = require('serverless-http');
+const router = express.Router();
 
 const {
   getAllListingsByMostRecent,
@@ -277,3 +279,8 @@ app.post('/like_listing', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+app.use('/.netlify/functions/server', router);  // path must route to lambda
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '/views/index.ejs')));
+
+module.exports.handler = serverless(app);
