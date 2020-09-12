@@ -3,7 +3,7 @@
 <section id="search">
   <form action="/search" method='GET' id='search-btn'>
     <input type="text" name="search_query" id="search-box">
-    <button type="submit">Search</button>
+    <button id='filter-search-btn' type="submit">Search</button>
     <section id="options">
       <a id="options-toggle"><img src="/resources/pokeball-icon.png" />
         More Options <i class="fa fa-angle-double-down hvr-pulse"></i></a>
@@ -51,4 +51,6 @@
       </section>
     </section>
   </form>
+  <div id="search-error" style='color: red; text-align: center; font-size: 1.25rem; display: none;'>Please enter valid
+    number!</div>
 </section>
