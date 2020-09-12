@@ -27,7 +27,16 @@
     <%- include('partials/_search') %>
 
     <section id="filter-results">
+
+      <% if (!data.length) { %>
+
+      <a id='recent-header'>No results found! Please try another search.</a>
+
+      <% } else { %>
+
       <a id="recent-header">Results</a>
+
+      <% } %>
 
       <% for (let obj of data) { %>
       <article class="listing">

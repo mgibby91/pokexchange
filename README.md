@@ -23,3 +23,7 @@ Or, fork this repo and clone onto your machine and run `npm start` in the root d
 * View listing for more details and to message owner!
 
 ![gif of basic features](https://github.com/mgibby91/pokechange/blob/master/img/pokechange-home.gif?raw=true)
+
+### Create, Edit and Delete Listings
+
+* Create new listings that will be 

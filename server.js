@@ -167,8 +167,7 @@ app.get('/search', (req, res) => {
     queryObj[key] = req.query[key];
   }
 
-  queryObj
-  console.log(queryObj);
+  console.log('queryObj', queryObj);
 
 
   getAllListingsByFilters(queryObj)
