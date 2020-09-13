@@ -38,7 +38,13 @@ Or, fork this repo and clone onto your machine and run `npm run local` in the ro
 
 ![gif of edit/delete listing](https://github.com/mgibby91/pokechange/blob/master/img/pokechange-editdelete.gif?raw=true)
 
-### 
+### Filter Search
+
+* Search for a specific listing title
+* Filter search by specifying category, city and/or condition
+* Specifiy price range!
+
+![gif of filter search](https://github.com/mgibby91/pokechange/blob/master/img/pokechange-filter-search.gif?raw=true)
 
 
 
