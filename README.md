@@ -18,12 +18,27 @@ Or, fork this repo and clone onto your machine and run `npm run local` in the ro
 
 ### Browse Listings
 
-* On the home page, view both most favourited and most recent listings from all users
-* Filter listings by city or category
+* On the home page, view both most favourited and most recent listings from all users.
+* Filter listings by city or category.
 * View listing for more details and to message owner!
 
 ![gif of basic features](https://github.com/mgibby91/pokechange/blob/master/img/pokechange-home.gif?raw=true)
 
 ### Create, Edit and Delete Listings
 
-* Create new listings that will be 
+* Create new listings that will be moved to the top of the public most recent list!
+* Modify or delete any of your own listings.
+* All changed data will be persisted and viewable in the most recent listings on the home page.
+
+**Create new!**
+
+![gif of creating new listing](https://github.com/mgibby91/pokechange/blob/master/img/pokechange-newlisting.gif?raw=true)
+
+**Edit/delete listing**
+
+![gif of edit/delete listing](https://github.com/mgibby91/pokechange/blob/master/img/pokechange-editdelete.gif?raw=true)
+
+### 
+
+
+
