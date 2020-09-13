@@ -54,5 +54,11 @@ Or, fork this repo and clone onto your machine and run `npm run local` in the ro
 
 ![gif of messaging](https://github.com/mgibby91/pokechange/blob/master/img/pokexchange-messaging.gif?raw=true)
 
+### Favourite Listings!
+
+* Like a listing and view in All Favourites page!
+
+![gif of favourites]()
+
 
 
