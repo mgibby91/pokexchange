@@ -58,7 +58,7 @@ Or, fork this repo and clone onto your machine and run `npm run local` in the ro
 
 * Like a listing and view in All Favourites page!
 
-![gif of favourites]()
+![gif of favourites](https://github.com/mgibby91/pokechange/blob/master/img/pokechange-favourites.gif?raw=true)
 
 
 
