@@ -4,7 +4,7 @@ PokEchange is a Pokemon-themed buy/sell web application built as a midterm proje
 
 ## Getting Started
 
-Visit https://pokechange.herokuapp.com/.
+Visit https://pokexchange.herokuapp.com/.
 
 Or, fork this repo and clone onto your machine and run `npm run local` in the root directory. Then, type in `localhost:8080` in your favourite browser!
 
