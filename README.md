@@ -1,6 +1,6 @@
-# PokEchange
+# PokExchange
 
-PokEchange is a Pokemon-themed buy/sell web application built as a midterm project during the Lighthouse Labs Web Development Bootcamp in Summer of 2020. This full-stack app includes features like refined searching of items listed, creating/editing/deleting of your own posted listings, quick filtering of listings posted in different cities, and a messaging service that connects two users who are exchanging their Pokemon goods!
+PokExchange is a Pokemon-themed buy/sell web application built as a midterm project during the Lighthouse Labs Web Development Bootcamp in Summer of 2020. This full-stack app includes features like refined searching of items listed, creating/editing/deleting of your own posted listings, quick filtering of listings posted in different cities, and a messaging service that connects two users who are exchanging their Pokemon goods!
 
 ## Getting Started
 
