@@ -46,5 +46,13 @@ Or, fork this repo and clone onto your machine and run `npm run local` in the ro
 
 ![gif of filter search](https://github.com/mgibby91/pokechange/blob/master/img/pokechange-filter-search.gif?raw=true)
 
+### Messaging Feature
+
+* Send messages to owner of listing
+* View messages in inbox
+* Message back and forth to arrange buying/selling of listing item
+
+![gif of messaging](https://github.com/mgibby91/pokechange/blob/master/img/pokexchange-messaging.gif?raw=true)
+
 
 
